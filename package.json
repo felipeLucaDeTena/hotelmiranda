@@ -1,0 +1,13 @@
+{
+    "name": "hotelmiranda",
+    "main": "index.js",
+    "version": "1.0.0",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "sass:watch": "sass --watch sass:styles"
+    },
+    "license": "ISC",
+    "dependencies": {
+        "sass": "^1.52.1"
+    }
+}
