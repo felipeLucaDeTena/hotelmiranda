@@ -1,0 +1,905 @@
+@charset "UTF-8";
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html,
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-width: 320px;
+}
+
+.nav {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 10vh;
+  box-shadow: 0 0 10px -5px;
+}
+.nav__icons {
+  display: flex;
+  margin-right: 10vw;
+}
+.nav__icons__element {
+  margin: 0 10px;
+}
+.nav__logo {
+  font-family: archivo;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 15vw 0 10vw;
+}
+.nav__logo__p--bold {
+  font-weight: bold;
+}
+.nav__logo__container {
+  font-size: 0.8rem;
+}
+.nav__logo__icon {
+  box-shadow: 0px 3px 6px 1px rgba(0, 0, 0, 0.4);
+  font-size: 1.5rem;
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.dropdown {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+}
+.dropdown:hover .dropdown__content {
+  display: flex;
+}
+.dropdown__button {
+  font-size: 1.5rem;
+  margin-left: 10vw;
+}
+.dropdown__button__container {
+  width: 2rem;
+  height: 2rem;
+}
+.dropdown__content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  width: 100vw;
+  height: 197.81px;
+  z-index: 1;
+  margin-top: 25px;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.dropdown__links {
+  text-decoration: none;
+  font-family: archivo;
+  font-size: 16px;
+  line-height: 17px;
+  font-weight: 600;
+  color: black;
+  margin-left: 10vw;
+}
+
+.header {
+  padding: 0 5.3% 0 5.3%;
+  width: 100%;
+  height: 531px;
+  background-color: #333333;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: white;
+}
+.header__p {
+  font-family: "archivo";
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 2.8px;
+}
+.header__title {
+  font-family: "Old Standard TT";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 60px;
+  letter-spacing: -1.2px;
+}
+.header__button {
+  width: 57.89%;
+  height: 60px;
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  line-height: 15px;
+  color: white;
+}
+.header__button--1 {
+  background: #bead8e;
+  border: none;
+}
+.header__button--2 {
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.33);
+}
+
+.dates {
+  background-color: #222222;
+  height: 354px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.dates__container {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+}
+.dates__button {
+  margin: 0 28% 0 5.3%;
+  width: 66.67;
+  height: 60px;
+  color: white;
+  background: #bead8e;
+  border: none;
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+}
+.dates__input {
+  background-color: transparent;
+  border: none;
+  width: 90%;
+  align-self: center;
+  color-scheme: dark;
+}
+.dates__input__label {
+  margin: 0 0 20px 5.3%;
+}
+.dates__br {
+  height: 2px;
+  background-color: #bead8e;
+  width: 90%;
+  align-self: center;
+}
+
+.about-us {
+  height: 555px;
+  width: 100%;
+  padding: 0 5.3% 0 5.3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 100px;
+}
+.about-us__h2 {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  color: #777777;
+  margin-bottom: 30px;
+}
+.about-us__h3 {
+  font-family: "Old Standard TT";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 60px;
+  letter-spacing: -1.2px;
+  color: #111111;
+  margin-bottom: 30px;
+}
+.about-us__p {
+  width: 340px;
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #777777;
+  margin-bottom: 30px;
+  line-height: 24px;
+}
+.about-us__button {
+  width: 57.89%;
+  color: white;
+  background: #bead8e;
+  border: none;
+  height: 60px;
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+.about-us__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 2535px;
+  background: linear-gradient(to bottom, #ffffff 2%, #f1f1f1 0%, #f1f1f1 28%, #ffffff 0%, #ffffff 70%);
+  width: 100%;
+}
+.about-us__image {
+  height: 300px;
+  object-fit: cover;
+  width: 270px;
+}
+.about-us__info {
+  color: #111111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  background-image: url("../public//home/team-background.svg");
+  background-repeat: no-repeat;
+  background-position: top 30% right;
+  background-size: 130px;
+  width: 270px;
+  margin-bottom: 20px;
+}
+.about-us__info--2 {
+  color: #ffffff;
+  background-image: none;
+  background-color: #222222;
+}
+.about-us__info__svg {
+  margin-bottom: 20px;
+}
+.about-us__info__h3 {
+  font-family: "Old Standard TT";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 30px;
+  margin-bottom: 20px;
+}
+.about-us__info__p {
+  width: 76%;
+  text-align: center;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  margin-bottom: 20px;
+}
+
+.rooms__container {
+  height: 736px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.rooms__h2 {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  line-height: 15px;
+  color: #777777;
+  margin-bottom: 30px;
+}
+.rooms__h3 {
+  font-family: "Old Standard TT";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 60px;
+  letter-spacing: -1.2px;
+  text-align: center;
+  color: #222222;
+}
+.rooms__swiper-wrapper {
+  height: 244px;
+  width: 100%;
+  background-color: #777777;
+}
+.rooms__info {
+  height: 215px;
+  width: 73.3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.rooms__info__h4 {
+  font-family: "Old Standard TT";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 60px;
+  letter-spacing: -1.2px;
+  letter-spacing: -1.2px;
+  color: #222222;
+  font-size: 28px;
+  line-height: 36px;
+  margin-bottom: 10px;
+}
+.rooms__info__p {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  text-align: center;
+  color: #777777;
+  line-height: 24px;
+  margin-bottom: 10px;
+}
+.rooms__info__price {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  color: #bead8e;
+  line-height: 43px;
+}
+.rooms__info__price--1 {
+  font-size: 32px;
+}
+.rooms__info__price--2 {
+  font-size: 13px;
+}
+
+.intro-video {
+  height: 876px;
+  background: #222222;
+  padding: 0 5.3% 0 5.3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.intro-video__h2 {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  line-height: 15px;
+  color: #bdac8d;
+  line-height: 15px;
+  margin-bottom: 30px;
+}
+.intro-video__h3 {
+  font-family: "Old Standard TT";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 60px;
+  letter-spacing: -1.2px;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+.intro-video__p {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #c2c2c2;
+  margin-bottom: 30px;
+}
+.intro-video__video {
+  background: #777777;
+  height: 270px;
+  margin-bottom: 30px;
+}
+.intro-video__button {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  height: 60px;
+  background-color: #bdac8d;
+  width: 57.89%;
+  border: none;
+  color: white;
+}
+
+.facilities {
+  height: 1864px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.facilities__h2 {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  line-height: 15px;
+  color: #777777;
+  line-height: 15px;
+  margin: 60px 0 30px 0;
+}
+.facilities__h3 {
+  font-family: "Old Standard TT";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 60px;
+  letter-spacing: -1.2px;
+  color: #222222;
+  margin-bottom: 30px;
+}
+.facilities__slider {
+  padding-left: 9.52%;
+  height: 370px;
+  width: 100%;
+  background-image: url("../public/home/01.svg");
+  background-repeat: no-repeat;
+  background-position: top 10% right 20%;
+  background-size: 170px;
+}
+.facilities__slider__wrapper {
+  height: 80px;
+  width: 80%;
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #777777;
+}
+.facilities__slider__svg {
+  margin: 100px 0 25px 0;
+}
+.facilities__h4 {
+  font-family: "Old Standard TT";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 60px;
+  letter-spacing: -1.2px;
+  color: #222222;
+  font-size: 30px;
+  line-height: 30px;
+  letter-spacing: -0.9px;
+  margin-bottom: 20px;
+}
+
+.menu {
+  padding: 0 5.3% 0 5.3%;
+  height: 758px;
+  width: 100%;
+  background-image: url("../public/home/donught.svg");
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: 90px;
+  flex-direction: column;
+  align-items: center;
+}
+.menu__slider__img {
+  margin-top: 70px;
+  width: 100%;
+  height: 89.3vw;
+  object-fit: cover;
+}
+.menu__h2 {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  line-height: 15px;
+  color: #777777;
+  line-height: 15px;
+  margin: 60px 0 30px 0;
+}
+.menu__h3 {
+  font-family: "Old Standard TT";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 60px;
+  letter-spacing: -1.2px;
+  color: #222222;
+  margin-bottom: 30px;
+  width: 100%;
+}
+.menu__img {
+  object-fit: cover;
+  height: 32vw;
+  width: 32vw;
+}
+.menu__container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+.menu__items {
+  margin-left: 30px;
+}
+.menu__items__title {
+  font-family: "Old Standard TT";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 60px;
+  letter-spacing: -1.2px;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: -0.72px;
+  color: #222222;
+  margin-bottom: 10px;
+}
+.menu__items__p {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #222222;
+}
+.menu__buttons {
+  height: 36px;
+  width: 36px;
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 100;
+  border: none;
+}
+.menu__buttons--1 {
+  color: #111111;
+  background: #f8f8f8;
+  margin-right: 10px;
+}
+.menu__buttons--2 {
+  color: white;
+  background-color: #bead8e;
+}
+.menu__buttons__container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.stats {
+  padding-top: 50px;
+  height: 1020px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #222222;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+}
+.stats__number {
+  color: #ffffff;
+  font-size: 60px;
+}
+.stats__number--2 {
+  font-size: 14px;
+}
+.stats__p {
+  font-size: 16px;
+  color: #777777;
+  margin-bottom: 70px;
+}
+.stats__img {
+  margin-bottom: 10px;
+}
+
+.footer {
+  height: 100%;
+  width: 100%;
+  padding: 0 5.3% 0 5.3%;
+}
+.footer__p {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  font-size: 16px;
+  line-height: 26px;
+  color: #777777;
+}
+.footer__break {
+  height: 60px;
+  width: 100%;
+  background-color: #ffffff;
+}
+.footer__info {
+  padding-top: 30px;
+  height: 990px;
+  background-image: url("../public/home/footer/Rectángulo 2 1-2.png");
+}
+.footer__copyright {
+  height: 94px;
+  background: #f8f8f8;
+}
+.footer__logo {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+}
+.footer__logo__icon {
+  width: 21.3%;
+  height: 80px;
+  background-color: #bead8e;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  font-size: 40px;
+  line-height: 43px;
+}
+.footer__logo__p {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  font-size: 26px;
+  line-height: 28px;
+  font-weight: bold;
+  letter-spacing: 2.6px;
+}
+.footer__logo__p__wrapper {
+  margin-left: 10%;
+}
+.footer__logo__p--2 {
+  font-weight: 400;
+}
+.footer__icons {
+  color: #777777;
+  height: 40px;
+  width: 40px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+.footer__icons__wrapper {
+  display: flex;
+  margin-top: 30px;
+}
+.footer__icons:hover {
+  color: white;
+  background-color: #bead8e;
+}
+.footer__services__title {
+  font-family: "Old Standard TT";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 60px;
+  letter-spacing: -1.2px;
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #222222;
+  margin-top: 30px;
+  letter-spacing: 1px;
+}
+.footer__services__wrapper {
+  margin-top: 20px;
+  display: flex;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #777777;
+  font-size: 16px;
+  line-height: 48px;
+  width: 100%;
+}
+.footer__services__info {
+  margin-right: 20px;
+}
+.footer__contact {
+  margin-top: 45px;
+  display: flex;
+}
+.footer__contact__info {
+  margin-left: 20px;
+}
+.footer__contact__info__p {
+  font-family: "Old Standard TT";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 60px;
+  letter-spacing: -1.2px;
+  font-size: 20px;
+  line-height: 24px;
+  color: #222222;
+}
+.footer__contact__info__p--2 {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  font-size: 14px;
+  line-height: 16.41px;
+  color: #777777;
+  letter-spacing: 1px;
+}
+
+/*# sourceMappingURL=home.css.map */
