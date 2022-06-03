@@ -12,7 +12,7 @@ const Nav = styled.nav`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 120px;
+    height: 100px;
     border: none;
     background-color: #fefefe;
 `;

@@ -6,6 +6,7 @@ import styled from "styled-components";
 import update from "immutability-helper";
 import Room from "../components/rooms/room";
 import TopRow from "../components/rooms/toprow";
+import Pagination from "../components/pagination";
 
 const RoomTable = styled.table`
     border-collapse: collapse;
@@ -23,6 +24,8 @@ const PaginationContainer = styled.div``;
 
 function Rooms() {
     const [roomsData, setRoomsData] = useState("");
+    const [currentPage, setCurrentPage] = useState(1);
+    const [roomsPerPage] = useState(6);
 
     useEffect(() => {
         axios
@@ -54,17 +57,29 @@ function Rooms() {
         []
     );
 
+    const indexOfLastRoom = currentPage * roomsPerPage;
+    const indexOfFirstRoom = indexOfLastRoom - roomsPerPage;
+    const currentRooms = roomsData.slice(indexOfFirstRoom, indexOfLastRoom);
+    const totalPagesNum = Math.ceil(roomsData.length / roomsPerPage);
+
     return (
         roomsData && (
-            <DndProvider backend={HTML5Backend}>
-                <RoomTable>
-                    <TopRow />
-                    {roomsData.map(
-                        (room, index) => index < 6 && renderRoom(room, index)
-                    )}
-                </RoomTable>
-                <PaginationContainer />
-            </DndProvider>
+            <>
+                <DndProvider backend={HTML5Backend}>
+                    <RoomTable>
+                        <TopRow />
+                        {currentRooms.map((room, index) =>
+                            renderRoom(room, index)
+                        )}
+                    </RoomTable>
+                </DndProvider>
+                <Pagination
+                    roomsData={roomsData}
+                    pages={totalPagesNum}
+                    setCurrentPage={setCurrentPage}
+                    currentRooms={currentRooms}
+                />
+            </>
         )
     );
 }

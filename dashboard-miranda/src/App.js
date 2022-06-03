@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import styled from "styled-components";
 import SideNav from "./components/nav/side-nav";
@@ -19,6 +19,12 @@ const Pagecontainer = styled.div`
     background-color: #e5e5e5;
     align-items: center;
 `;
+
+// function RequireAuth(page) {
+//     const auth = useAuth();
+//     return !auth ? <Navigate to="/login" /> : page;
+// }
+
 function App() {
     return (
         <div className="App">
