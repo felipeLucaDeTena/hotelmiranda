@@ -1,0 +1,1 @@
+export const ItemType = "room";

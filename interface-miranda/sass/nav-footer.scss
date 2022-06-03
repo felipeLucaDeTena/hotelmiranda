@@ -1,0 +1,369 @@
+@mixin old-title {
+    font-family: "Old Standard TT";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 60px;
+    letter-spacing: -1.2px;
+}
+@mixin archivo-button {
+    font-family: "Archivo";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 2.8px;
+    text-transform: uppercase;
+}
+@mixin archivo-normal {
+    font-family: "Archivo";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+}
+@mixin roboto-normal {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+}
+@mixin roboto-bold {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol,
+ul {
+    list-style: none;
+}
+blockquote,
+q {
+    quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: "";
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+html,
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    min-width: 320px;
+}
+.nav {
+    &__icons {
+        display: flex;
+        margin-right: 10vw;
+        &__element {
+            margin: 0 10px;
+        }
+    }
+    background-color: white;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 10vh;
+    box-shadow: 0 0 10px -5px;
+    &__logo {
+        font-family: archivo;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 15vw 0 10vw;
+        &__p--bold {
+            font-weight: bold;
+        }
+
+        &__container {
+            font-size: 0.8rem;
+        }
+        &__icon {
+            box-shadow: 0px 3px 6px 1px rgba(0, 0, 0, 0.4);
+            font-size: 1.5rem;
+            height: 2rem;
+            width: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 20px;
+        }
+    }
+}
+
+.dropdown {
+    width: 100%;
+    position: relative;
+    display: inline-block;
+
+    &:hover &__content {
+        display: flex;
+    }
+
+    &__button {
+        font-size: 1.5rem;
+        margin-left: 10vw;
+        &__container {
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+    &__content {
+        display: none;
+        position: absolute;
+        background-color: white;
+        width: 100vw;
+        height: 197.81px;
+        z-index: 1;
+        margin-top: 25px;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    &__links {
+        text-decoration: none;
+        font-family: archivo;
+        font-size: 16px;
+        line-height: 17px;
+        font-weight: 600;
+        color: black;
+        margin-left: 10vw;
+    }
+}
+
+.footer {
+    height: 100%;
+    width: 100%;
+    padding: 0 5.3% 0 5.3%;
+    &__p {
+        @include archivo-normal;
+        font-size: 16px;
+        line-height: 26px;
+        color: #777777;
+    }
+
+    &__break {
+        height: 60px;
+        width: 100%;
+        background-color: #ffffff;
+    }
+    &__info {
+        padding-top: 30px;
+        height: 990px;
+        background-image: url("../public/home/footer/Rectángulo\ 2\ 1-2.png");
+    }
+    &__copyright {
+        height: 94px;
+        background: #f8f8f8;
+    }
+    &__logo {
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        &__icon {
+            width: 21.3%;
+            height: 80px;
+            background-color: #bead8e;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @include archivo-button;
+            font-size: 40px;
+            line-height: 43px;
+        }
+
+        &__p {
+            &__wrapper {
+                margin-left: 10%;
+            }
+
+            @include archivo-normal;
+            font-size: 26px;
+            line-height: 28px;
+            font-weight: bold;
+            letter-spacing: 2.6px;
+            &--2 {
+                font-weight: 400;
+            }
+        }
+    }
+    &__icons {
+        color: #777777;
+        height: 40px;
+        width: 40px;
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 10px;
+
+        &__wrapper {
+            display: flex;
+            margin-top: 30px;
+        }
+        &:hover {
+            color: white;
+            background-color: #bead8e;
+        }
+    }
+    &__services {
+        &__title {
+            @include old-title;
+            font-size: 24px;
+            line-height: 24px;
+            font-weight: 400;
+            color: #222222;
+            margin-top: 30px;
+            letter-spacing: 1px;
+        }
+        &__wrapper {
+            margin-top: 20px;
+            display: flex;
+            @include roboto-normal;
+            color: #777777;
+            font-size: 16px;
+            line-height: 48px;
+            width: 100%;
+        }
+        &__info {
+            margin-right: 20px;
+        }
+    }
+    &__contact {
+        margin-top: 45px;
+        display: flex;
+        &__info {
+            margin-left: 20px;
+            &__p {
+                @include old-title;
+                font-size: 20px;
+                line-height: 24px;
+                color: #222222;
+                &--2 {
+                    @include roboto-normal;
+                    font-size: 14px;
+                    line-height: 16.41px;
+                    color: #777777;
+                    letter-spacing: 1px;
+                }
+            }
+        }
+    }
+}

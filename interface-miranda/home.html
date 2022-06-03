@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/styles/home.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script
+            src="https://kit.fontawesome.com/c3c5a054e8.js"
+            crossorigin="anonymous"
+        ></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&family=Old+Standard+TT:wght@400;700&family=Roboto:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="nav">
+            <div class="dropdown">
+                <!-- <i
+                        class="dropdown__button dropdown__button--x fa fa-times"
+                    ></i> -->
+                <i
+                    class="dropdown__button dropdown__button--bar fas fa-bars"
+                    aria-hidden="true"
+                ></i>
+
+                <ul class="dropdown__content">
+                    <li>
+                        <a class="dropdown__links" href="#">About Us</a>
+                    </li>
+                    <li>
+                        <a class="dropdown__links" href="#">Rooms</a>
+                    </li>
+                    <li>
+                        <a class="dropdown__links" href="#">Offers</a>
+                    </li>
+                    <li>
+                        <a class="dropdown__links" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav__logo">
+                <div class="nav__logo__icon">
+                    <p>H</p>
+                </div>
+                <div class="nav__logo__container">
+                    <p class="nav__logo__p nav__logo__p--bold">HOTEL</p>
+                    <p class="nav__logo__p">MIRANDA</p>
+                </div>
+            </div>
+            <div class="nav__icons">
+                <i
+                    class="nav__icons__element fa fa-search"
+                    aria-hidden="true"
+                ></i>
+                <i class="nav__icons__element fas fa-user"></i>
+            </div>
+        </div>
+        <header class="header">
+            <div><p class="header__p">THE ULTIMATE LUXURY EXPERIENCE</p></div>
+            <div>
+                <p class="header__title">The Perfect</p>
+                <p class="header__title">Base For You</p>
+            </div>
+
+            <button class="header__button header__button--1">
+                TAKE A TOUR
+            </button>
+            <button class="header__button header__button--2">LEARN MORE</button>
+        </header>
+        <div class="dates">
+            <div class="dates__container">
+                <label class="dates__input__label" for="start"
+                    >Arrival Date</label
+                >
+
+                <input
+                    class="dates__input"
+                    type="date"
+                    id="start"
+                    name="trip-start"
+                    value="24th march 2020"
+                    min="2018-01-01"
+                    max="2018-12-31"
+                />
+                <div class="dates__br"></div>
+            </div>
+
+            <div class="dates__container">
+                <label class="dates__input__label" for="start"
+                    >LeDeparture Date</label
+                >
+                <input
+                    class="dates__input"
+                    type="date"
+                    id="start"
+                    name="trip-start"
+                    value="2018-07-22"
+                    min="2018-01-01"
+                    max="2018-12-31"
+                />
+                <div class="dates__br"></div>
+            </div>
+
+            <button class="dates__button">CHECK AVAILABILITY</button>
+        </div>
+
+        <div class="about-us__container">
+            <div class="about-us">
+                <h2 class="about-us__h2">ABOUT US</h2>
+                <h3 class="about-us__h3">Discover Our Underground.</h3>
+                <p class="about-us__p">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+                <button class="about-us__button">BOOK NOW</button>
+            </div>
+            <img
+                class="about-us__image"
+                src="./public/home/recepcion-hoteles.jpg"
+                alt=""
+            />
+            <div class="about-us__info">
+                <img
+                    class="about-us__team__svg"
+                    src="./public/home/team.svg"
+                    alt=""
+                />
+                <h3 class="about-us__info__h3">Strong Team</h3>
+                <p class="about-us__info__p">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor.
+                </p>
+            </div>
+            <img
+                class="about-us__image"
+                src="./public/home/Park-Hyatt-New-York-Manhattan-Sky-Suite-Master-Bedroom-low-res_54_990x660.webp"
+                alt=""
+            />
+            <div class="about-us__info about-us__info--2">
+                <img
+                    class="about-us__info__svg"
+                    src="./public/home/book.svg"
+                    alt=""
+                />
+                <h3 class="about-us__info__h3">Luxury Room</h3>
+                <p class="about-us__info__p">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor.
+                </p>
+            </div>
+            <div class="rooms__container">
+                <h2 class="rooms__h2">ROOMS</h2>
+                <h3 class="rooms__h3">Hand Picked Rooms</h3>
+                <img
+                    class="rooms__icons"
+                    src="./public/home/icons.svg"
+                    alt=""
+                />
+                <div class="rooms__swiper-wrapper"></div>
+                <div class="rooms__info">
+                    <h4 class="rooms__info__h4">Minimal Duplex Room</h4>
+                    <p class="rooms__info__p">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore.
+                    </p>
+                    <div class="rooms__info__price">
+                        <span class="rooms__info__price rooms__info__price--1"
+                            >$345</span
+                        >
+                        <span class="rooms__info__price rooms__info__price--2"
+                            >/Night</span
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="intro-video">
+            <h2 class="intro-video__h2">INTRO VIDEO</h2>
+            <h3 class="intro-video__h3">Meet With Our Luxury Place.</h3>
+            <p class="intro-video__p">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat you have to understand
+                this.
+            </p>
+            <iframe
+                class="intro-video__video"
+                src="https://www.youtube.com/embed/0E3uPvuAa-4"
+            ></iframe>
+            <button class="intro-video__button">BOOK NOW</button>
+        </div>
+        <div class="facilities">
+            <h2 class="facilities__h2">FACILITIES</h2>
+            <h3 class="facilities__h3">Core Features</h3>
+            <div class="facilities__slider">
+                <img
+                    class="facilities__slider__svg"
+                    src="./public/home/hand.svg"
+                    alt=""
+                />
+                <h4 class="facilities__h4">Have High Rating</h4>
+                <div class="facilities__slider__wrapper">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna..
+                </div>
+            </div>
+            <div class="menu">
+                <h2 class="menu__h2">MENU</h2>
+                <h3 class="menu__h3">Our Foods Menu</h3>
+                <div class="menu__container">
+                    <img
+                        src="./public/home/breakfast/Breakfast-Tomatoes-with-Bacon-Eggs--e1631842410791.jpg"
+                        alt=""
+                        class="menu__img"
+                    />
+                    <div class="menu__items">
+                        <h5 class="menu__items__title">Eggs & Bacon</h5>
+                        <p class="menu__items__p">
+                            Lorem ipsum dolor sit amet, consectetur adip isicing
+                            elit, sed do eiusmod tempor.
+                        </p>
+                    </div>
+                </div>
+                <div class="menu__container">
+                    <img
+                        src="./public/home/breakfast/Screenshot 2022-05-25 at 19.07.23.png"
+                        alt=""
+                        class="menu__img"
+                    />
+                    <div class="menu__items">
+                        <h5 class="menu__items__title">Tea or Coffee</h5>
+                        <p class="menu__items__p">
+                            Lorem ipsum dolor sit amet, consectetur adip isicing
+                            elit, sed do eiusmod tempor.
+                        </p>
+                    </div>
+                </div>
+                <div class="menu__container">
+                    <img
+                        src="./public/home/breakfast/overnight-oats_online-shop.jpg
+                        "
+                        alt=""
+                        class="menu__img"
+                    />
+                    <div class="menu__items">
+                        <h5 class="menu__items__title">Chia Oatmeal</h5>
+                        <p class="menu__items__p">
+                            Lorem ipsum dolor sit amet, consectetur adip isicing
+                            elit, sed do eiusmod tempor.
+                        </p>
+                    </div>
+                </div>
+                <div class="menu__buttons__container">
+                    <button
+                        type="button"
+                        class="menu__buttons menu__buttons--1"
+                    >
+                        <
+                    </button>
+                    <button
+                        type="button"
+                        class="menu__buttons menu__buttons--2"
+                    >
+                        >
+                    </button>
+                </div>
+                <div class="menu__slider__wrapper">
+                    <img
+                        class="menu__slider__img"
+                        src="./public/home/breakfast/thumb__1366_734_0_0_auto.jpg"
+                        alt=""
+                    />
+                </div>
+            </div>
+        </div>
+        <div class="stats">
+            <img class="stats__img" src="./public/home/stats/ship.svg" alt="" />
+            <div class="stats__number__wrapper">
+                <span class="stats__number">84k</span>
+                <span class="stats__number stats__number--2">+</span>
+            </div>
+            <p class="stats__p">Projects are Completed</p>
+
+            <img class="stats__img" src="./public/home/team.svg" alt="" />
+            <div class="stats__number__wrapper">
+                <span class="stats__number">10M</span>
+                <span class="stats__number stats__number--2">+</span>
+            </div>
+            <p class="stats__p">Active Backers Around World</p>
+
+            <img
+                class="stats__img"
+                src="./public/home/stats/money.svg"
+                alt=""
+            />
+            <div class="stats__number__wrapper">
+                <span class="stats__number">02k</span>
+                <span class="stats__number stats__number--2">+</span>
+            </div>
+            <p class="stats__p">Categories Served</p>
+
+            <img class="stats__img" src="./public/home/stats/book.svg" alt="" />
+            <div class="stats__number__wrapper">
+                <span class="stats__number">100M</span>
+                <span class="stats__number stats__number--2">+</span>
+            </div>
+            <p class="stats__p">Idea Raised Funds</p>
+        </div>
+        <footer class="footer">
+            <div class="footer__break"></div>
+            <div class="footer__info">
+                <div class="footer__logo">
+                    <div class="footer__logo__icon">H</div>
+                    <div class="footer__logo__p__wrapper">
+                        <p class="footer__logo__p">HOTEL</p>
+                        <p class="footer__logo__p footer__logo__p--2">
+                            MIRANDA
+                        </p>
+                    </div>
+                </div>
+                <p class="footer__p">
+                    Lorem ipsum dolor sit amet, consect etur adipisicing elit,
+                    sed doing eius mod tempor incididunt ut labore et dolore
+                    magna aliqua. Ut enim ad minim veniam, quis nostrud
+                    exercitat ion ullamco laboris nisi.
+                </p>
+                <div class="footer__icons__wrapper">
+                    <i class="footer__icons fab fa-facebook-square"></i>
+                    <i class="footer__icons fab fa-twitter-square"></i>
+                    <i class="footer__icons fab fa-behance-square"></i>
+                    <i class="footer__icons fab fa-linkedin"></i>
+                    <i class="footer__icons fab fa-youtube-square"></i>
+                </div>
+                <div class="footer__services">
+                    <h4 class="footer__services__title">Services.</h4>
+                    <div class="footer__services__wrapper">
+                        <div class="footer__services__info">
+                            <p>+ Restaurant & Bar</p>
+                            <p>+ Swimming Pool</p>
+                            <p>+ Wellness and Spa</p>
+                            <p>+ Restaurant</p>
+                            <p>+ Conference Room</p>
+                            <p>+ Coctail Party House</p>
+                        </div>
+                        <div class="footer__services__info">
+                            <p>+ Gaming Zone</p>
+                            <p>+ Marrige Party</p>
+                            <p>+ Party Planning</p>
+                            <p>+ Tour Consultancy</p>
+                        </div>
+                    </div>
+                    <h4 class="footer__services__title">Contact Us.</h4>
+                    <div class="footer__contact">
+                        <img
+                            class="footer__contact__icon"
+                            src="./public/home/footer/phone.svg"
+                            alt=""
+                        />
+                        <div class="footer__contact__info">
+                            <p class="footer__contact__info__p">Phone Number</p>
+                            <p
+                                class="footer__contact__info__p footer__contact__info__p--2"
+                            >
+                                +987 876 765 76 577
+                            </p>
+                        </div>
+                    </div>
+                    <div class="footer__contact">
+                        <img
+                            class="footer__contact__icon"
+                            src="./public/home/footer/message.svg"
+                            alt=""
+                        />
+                        <div class="footer__contact__info">
+                            <p class="footer__contact__info__p">Phone Number</p>
+                            <p
+                                class="footer__contact__info__p footer__contact__info__p--2"
+                            >
+                                +987 876 765 76 577
+                            </p>
+                        </div>
+                    </div>
+                    <div class="footer__contact">
+                        <img
+                            class="footer__contact__icon"
+                            src="./public/home/footer/location.svg"
+                            alt=""
+                        />
+                        <div class="footer__contact__info">
+                            <p class="footer__contact__info__p">Phone Number</p>
+                            <p
+                                class="footer__contact__info__p footer__contact__info__p--2"
+                            >
+                                +987 876 765 76 577
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

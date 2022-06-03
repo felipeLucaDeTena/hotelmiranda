@@ -1,0 +1,216 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html,
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-width: 320px;
+}
+
+.header {
+  padding: 0 5.3% 0 5.3%;
+  width: 100%;
+  height: 265px;
+  background-color: #333333;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: white;
+}
+.header__p {
+  font-family: "archivo";
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 2.8px;
+  margin-top: 70px;
+}
+.header__title {
+  font-family: "Old Standard TT";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 60px;
+  letter-spacing: -1.2px;
+  margin-top: 30px;
+}
+.header__container {
+  background-color: white;
+  color: #222222;
+  width: 41%;
+  height: 49px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto 20px 0 auto;
+}
+.header__container__p {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+}
+.header__container__p--2 {
+  color: #bead8e;
+}
+
+.about {
+  padding: 0 5.3% 0 5.3%;
+}
+.about__intro {
+  margin-top: 60px;
+  height: 1655px;
+  width: 100%;
+}
+.about__intro__video {
+  width: 100%;
+  height: 186px;
+  margin-bottom: 30px;
+}
+.about__intro__p {
+  font-family: "Old Standard TT";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 60px;
+  letter-spacing: -1.2px;
+  font-size: 32px;
+  letter-spacing: -1.16px;
+  color: #222222;
+  text-align: center;
+  line-height: 40px;
+}
+
+/*# sourceMappingURL=about.css.map */
