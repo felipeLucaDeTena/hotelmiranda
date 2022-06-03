@@ -20,11 +20,6 @@ const Pagecontainer = styled.div`
     align-items: center;
 `;
 
-// function RequireAuth(page) {
-//     const auth = useAuth();
-//     return !auth ? <Navigate to="/login" /> : page;
-// }
-
 function App() {
     return (
         <div className="App">
