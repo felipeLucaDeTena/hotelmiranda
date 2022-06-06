@@ -84,7 +84,7 @@ function Pagination({ pages, setCurrentPage, currentRooms, roomsData }) {
                             )
                         }
                     >
-                        Previous
+                        Prev
                     </PageLinkButton>
                 </PageItem>
                 {numOfPages.map((page, index) => (

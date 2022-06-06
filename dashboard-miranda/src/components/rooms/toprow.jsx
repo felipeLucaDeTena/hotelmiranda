@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { topRowRooms } from "../../data/toprow-data";
 
 const Tr = styled.tr`
     height: 60px;
@@ -14,12 +15,9 @@ const Th = styled.th`
 function TopRow() {
     return (
         <Tr>
-            <Th>Room Name</Th>
-            <Th>Bed Type</Th>
-            <Th>Room Number</Th>
-            <Th>Facilities</Th>
-            <Th>Rate</Th>
-            <Th>Status</Th>
+            {topRowRooms.map((element) => (
+                <Th key={element}>{element}</Th>
+            ))}
         </Tr>
     );
 }

@@ -16,7 +16,7 @@ const NavContainer = styled.div`
     flex-direction: column;
     align-items: center;
     width: 18%;
-    min-width: 260px;
+    min-width: 300px;
     height: 100%;
 `;
 
