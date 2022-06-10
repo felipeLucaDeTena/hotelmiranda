@@ -10,7 +10,7 @@ describe("empty spec", () => {
         cy.hash().should("eq", "");
     });
     it("Trying to navigate before logged", () => {
-        cy.visit("http://localhost:3000/rooms");
+        cy.visit("http://localhost:3000/bookings");
         cy.location().should((location) =>
             expect(location.pathname).to.eq("/login")
         );
