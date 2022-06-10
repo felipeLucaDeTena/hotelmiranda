@@ -1,8 +1,9 @@
+/* eslint-disable react/no-array-index-key */
 import React from "react";
 import styled from "styled-components";
 import { topRowRooms } from "../../data/toprow-data";
 
-const Tr = styled.tr`
+const Thead = styled.thead`
     height: 60px;
     border-bottom: 1px solid #c2c2c2;
 `;
@@ -14,11 +15,13 @@ const Th = styled.th`
 `;
 function TopRow() {
     return (
-        <Tr>
-            {topRowRooms.map((element) => (
-                <Th key={element}>{element}</Th>
-            ))}
-        </Tr>
+        <Thead>
+            <tr>
+                {topRowRooms.map((element, i) => (
+                    <Th key={element + i}>{element}</Th>
+                ))}
+            </tr>
+        </Thead>
     );
 }
 export default TopRow;

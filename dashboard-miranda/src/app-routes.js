@@ -5,7 +5,6 @@ import TopNav from "./components/nav/top-nav";
 import Bookings from "./pages/bookings";
 import Contact from "./pages/contact";
 import Dashboard from "./pages/dashboard";
-import LogIn from "./pages/login";
 import RoomDetails from "./pages/room-details";
 import Rooms from "./pages/rooms";
 import Users from "./pages/users";
@@ -14,9 +13,8 @@ const Pagecontainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
-    background-color: #e5e5e5;
     align-items: center;
+    background-color: #e5e5e5;
 `;
 
 export const routes = [
@@ -87,8 +85,8 @@ export const routes = [
     },
     {
         name: "roomdetails",
-        path: "/bookings/:id",
-        element: (
+        path: "/room/:id",
+        component: (
             <>
                 <SideNav />
                 <Pagecontainer>

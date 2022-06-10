@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/authcontext";
+import { AuthContext } from "../context/authcontext";
+import { HandleError } from "../components/error";
+import { loginDB } from "../data/logindb";
 
 const LoginContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 30vw;
-    height: 25vw;
+    min-width: 400px;
+    min-height: 400px;
     background-color: white;
     border-radius: 10%;
     box-shadow: 0px 20px 30px #00000014;
@@ -63,21 +65,20 @@ const LoginBtn = styled.button`
     }
 `;
 
-function LogIn() {
-    const [user, setUser] = useState("");
-    const [password, setPassword] = useState("");
-    const navigate = useNavigate();
+function LogIn({ setAuthenticated }) {
+    const [myEmail, setMyEmail] = useState("");
+    const [myPassword, setMyPassword] = useState("");
+    const [error, setError] = useState(false);
 
-    const myUser = {
-        user: "felipe",
-        password: "2121",
-    };
+    const navigate = useNavigate();
 
     const handleSubmit = (ev) => {
         ev.preventDefault();
-        user === myUser.user && password === myUser.password
-            ? auth.logIn()
-            : auth.error();
+
+        console.log(myEmail + myPassword);
+        loginDB.email === myEmail && loginDB.password === myPassword
+            ? setAuthenticated(true) && navigate("/", { replace: true })
+            : setError(true);
     };
 
     return (
@@ -85,27 +86,28 @@ function LogIn() {
             <LoginContainer>
                 <LoginIcon src="/logo.svg" />
                 <LoginTitle>Hotel Dashboard Login </LoginTitle>
+                {HandleError(error)}
                 <LoginForm onSubmit={handleSubmit}>
                     <LoginInput
+                        data-cy="email"
                         type="text"
                         name="email"
-                        id="email"
                         placeholder="Email"
-                        value={login.email}
-                        required
-                        onChange={(ev) => handleChange(ev, "email")}
+                        value={myEmail}
+                        onChange={(e) => setMyEmail(e.target.value)}
                     />
                     <LoginInput
+                        data-cy="password"
                         type="password"
                         name="password"
-                        id="password"
                         placeholder="Password"
-                        value={login.password}
-                        required
-                        onChange={(ev) => handleChange(ev, "password")}
+                        value={myPassword}
+                        onChange={(e) => setMyPassword(e.target.value)}
                     />
+                    <LoginBtn data-cy="submit" type="submit">
+                        LOGIN
+                    </LoginBtn>
                 </LoginForm>
-                <LoginBtn type="submit">LOGIN</LoginBtn>
             </LoginContainer>
         </PageContainer>
     );

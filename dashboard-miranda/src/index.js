@@ -15,13 +15,11 @@ const root = createRoot(container);
 
 root.render(
     <BrowserRouter>
-        <AuthProvider>
-            <Provider store={store}>
-                <DndProvider backend={HTML5Backend}>
-                    <App />
-                </DndProvider>
-            </Provider>
-        </AuthProvider>
+        <Provider store={store}>
+            <DndProvider backend={HTML5Backend}>
+                <App />
+            </DndProvider>
+        </Provider>
     </BrowserRouter>
 );
 

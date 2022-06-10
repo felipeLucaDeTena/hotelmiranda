@@ -3,5 +3,6 @@ export const topRowRooms = [
     "Bed Type",
     "Room Number",
     "Facilities",
-    "Rate,Status",
+    "Rate",
+    "Status",
 ];

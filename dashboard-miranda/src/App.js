@@ -1,31 +1,52 @@
-import React, { useContext, useEffect } from "react";
-import {
-    Navigate,
-    Route,
-    Routes,
-    useLocation,
-    useNavigate,
-} from "react-router-dom";
+/* eslint-disable react/no-array-index-key */
+
+import React, { useEffect, useState } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
 import LogIn from "./pages/login";
 import { routes } from "./app-routes";
-import { AuthContext } from "./context/authcontext";
+import { AuthProvider } from "./context/authcontext";
+import { RequireAuth } from "./components/requireAuth";
+import RoomDetails from "./pages/room-details";
 
-export function App() {
-    const RequireAuth = useContext(AuthContext);
+function App() {
+    const navigate = useNavigate();
+    const [authenticated, setAuthenticated] = useState(
+        localStorage.getItem("authenticated") !== null
+    );
+
+    useEffect(() => {
+        authenticated
+            ? localStorage.setItem("authenticated", "1")
+            : localStorage.removeItem("authenticated");
+        authenticated
+            ? navigate("/", { replace: true })
+            : navigate("/login", { replace: true });
+    }, [authenticated]);
 
     return (
         <div className="App">
-            <Routes>
-                <Route path="login" element={<LogIn />} />
-                {routes.map((route) => (
+            <AuthProvider authenticated={authenticated}>
+                <Routes>
                     <Route
-                        key={route.path}
-                        path={route.path}
-                        element={<RequireAuth component={route.component} />}
+                        path="/login"
+                        element={<LogIn setAuthenticated={setAuthenticated} />}
                     />
-                ))}
-            </Routes>
+                    {routes.map((route, i) => (
+                        <Route
+                            key={route.name + i}
+                            path={route.path}
+                            element={
+                                <RequireAuth authenticated={authenticated}>
+                                    {route.component}
+                                </RequireAuth>
+                            }
+                        />
+                    ))}
+                </Routes>
+            </AuthProvider>
         </div>
     );
 }
+
+export default App;
