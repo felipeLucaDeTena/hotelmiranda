@@ -1,40 +1,50 @@
-import React from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
-import "./App.css";
-import styled from "styled-components";
-import SideNav from "./components/nav/side-nav";
-import TopNav from "./components/nav/top-nav";
-import Bookings from "./pages/bookings";
-import Contact from "./pages/contact";
-import Dashboard from "./pages/dashboard";
-import RoomDetails from "./pages/room-details";
-import Rooms from "./pages/rooms";
-import Users from "./pages/users";
+/* eslint-disable react/no-array-index-key */
 
-const Pagecontainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    background-color: #e5e5e5;
-    align-items: center;
-`;
+import React, { useEffect, useState } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import "./App.css";
+import LogIn from "./pages/login";
+import { routes } from "./app-routes";
+import { AuthProvider } from "./context/authcontext";
+import { RequireAuth } from "./components/requireAuth";
+import RoomDetails from "./pages/room-details";
 
 function App() {
+    const navigate = useNavigate();
+    const [authenticated, setAuthenticated] = useState(
+        localStorage.getItem("authenticated") !== null
+    );
+
+    useEffect(() => {
+        authenticated
+            ? localStorage.setItem("authenticated", "1")
+            : localStorage.removeItem("authenticated");
+        authenticated
+            ? navigate("/", { replace: true })
+            : navigate("/login", { replace: true });
+    }, [authenticated]);
+
     return (
         <div className="App">
-            <SideNav />
-            <Pagecontainer>
-                <TopNav />
+            <AuthProvider authenticated={authenticated}>
                 <Routes>
-                    <Route path="/" element={<Dashboard />} />
-                    <Route path="/rooms" element={<Rooms />} />
-                    <Route path="/bookings" element={<Bookings />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="/users" element={<Users />} />
-                    <Route path="/bookings/:id" element={<RoomDetails />} />
+                    <Route
+                        path="/login"
+                        element={<LogIn setAuthenticated={setAuthenticated} />}
+                    />
+                    {routes.map((route, i) => (
+                        <Route
+                            key={route.name + i}
+                            path={route.path}
+                            element={
+                                <RequireAuth authenticated={authenticated}>
+                                    {route.component}
+                                </RequireAuth>
+                            }
+                        />
+                    ))}
                 </Routes>
-            </Pagecontainer>
+            </AuthProvider>
         </div>
     );
 }

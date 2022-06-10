@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 import React, { useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { ItemType } from "../../data/itemtypes";
 
@@ -35,6 +36,9 @@ const RoomPhoto = styled.img`
     width: 150px;
     height: 65px;
     border-radius: 5px;
+    &:hover {
+        transform: scale(1.02);
+    }
 `;
 const RoomPhotoContainer = styled.div`
     display: flex;
@@ -100,7 +104,9 @@ function Room({ id, room, index, moveCard }) {
         <Tr ref={ref} style={{ opacity }} data-handler-id={handlerId}>
             <Td>
                 <RoomPhotoContainer>
-                    <RoomPhoto src={room.photos.room} />
+                    <Link to={`/room/${room.id}`}>
+                        <RoomPhoto src={room.photos.room} />
+                    </Link>
                     <Id>{room.id.slice(0, -23)}</Id>
                 </RoomPhotoContainer>
             </Td>
@@ -114,7 +120,10 @@ function Room({ id, room, index, moveCard }) {
             <Td>
                 <FacilitiesContainer>
                     {room.facilities.map((facility, i) => (
-                        <span key={room.id}>{(i ? ", " : " ") + facility}</span>
+                        // eslint-disable-next-line react/no-array-index-key
+                        <span key={room.id + i}>
+                            {(i ? ", " : " ") + facility}
+                        </span>
                     ))}
                 </FacilitiesContainer>
             </Td>

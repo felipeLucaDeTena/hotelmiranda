@@ -8,6 +8,7 @@ import { store } from "./app/store";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
+import { AuthProvider } from "./context/authcontext";
 
 const container = document.getElementById("root");
 const root = createRoot(container);

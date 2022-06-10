@@ -1,57 +1,115 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/authcontext";
+import { HandleError } from "../components/error";
+import { loginDB } from "../data/logindb";
 
-function LogIn({ togglePopup }) {
-    const [login, setLogin] = useState({});
+const LoginContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 400px;
+    min-height: 400px;
+    background-color: white;
+    border-radius: 10%;
+    box-shadow: 0px 20px 30px #00000014;
+`;
+const PageContainer = styled.div`
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+const LoginIcon = styled.img`
+    width: 20%;
 
-    useEffect(() => {
-        if (auth) {
-            navigate("/", { replace: true });
-        }
-    }, []);
+    top: 2;
+`;
+const LoginInput = styled.input`
+    border: none;
+    background: #ebf1ef;
+    text-align: center;
+    margin: 5px 0;
+    height: 30px;
+    width: 200px;
+    border-radius: 5px;
+    ::placeholder {
+        color: #799283;
+    }
+`;
+const LoginTitle = styled.h2`
+    font: normal bold 600 Poppins;
+    font-size: 28px;
+    letter-spacing: 0px;
+    color: #212121;
+    text-align: center;
+`;
+const LoginForm = styled.form`
+    display: flex;
+    flex-direction: column;
+`;
+
+const LoginBtn = styled.button`
+    font: normal normal 600 14px/21px Poppins;
+    border: 2px solid #ebf1ef;
+    padding: 2% 5%;
+    border-radius: 8px;
+    opacity: 1;
+    margin: 20px 0 20px 0;
+    background-color: white;
+    &:hover {
+        background-color: #799283;
+        color: white;
+    }
+`;
+
+function LogIn({ setAuthenticated }) {
+    const [myEmail, setMyEmail] = useState("");
+    const [myPassword, setMyPassword] = useState("");
+    const [error, setError] = useState(false);
 
     const navigate = useNavigate();
 
-    const handleSubmit = async (ev) => {
+    const handleSubmit = (ev) => {
         ev.preventDefault();
 
-        navigate("/", { replace: true });
-    };
-
-    const handleChange = (ev, control) => {
-        setLogin({ ...login, [control]: ev.target.value });
+        console.log(myEmail + myPassword);
+        loginDB.email === myEmail && loginDB.password === myPassword
+            ? setAuthenticated(true) && navigate("/", { replace: true })
+            : setError(true);
     };
 
     return (
-        <div>
-            <div>
-                <h1>Login</h1>
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <input
-                            type="text"
-                            name="name"
-                            id="name"
-                            placeholder="Name"
-                            value={login.name}
-                            required
-                            onChange={(ev) => handleChange(ev, "email")}
-                        />
-                        <input
-                            type="password"
-                            name="password"
-                            id="password"
-                            placeholder="Password"
-                            value={login.password}
-                            required
-                            onChange={(ev) => handleChange(ev, "password")}
-                        />
-
-                        <button type="submit">LOGIN</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+        <PageContainer>
+            <LoginContainer>
+                <LoginIcon src="/logo.svg" />
+                <LoginTitle>Hotel Dashboard Login </LoginTitle>
+                {HandleError(error)}
+                <LoginForm onSubmit={handleSubmit}>
+                    <LoginInput
+                        data-cy="email"
+                        type="text"
+                        name="email"
+                        placeholder="Email"
+                        value={myEmail}
+                        onChange={(e) => setMyEmail(e.target.value)}
+                    />
+                    <LoginInput
+                        data-cy="password"
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        value={myPassword}
+                        onChange={(e) => setMyPassword(e.target.value)}
+                    />
+                    <LoginBtn data-cy="submit" type="submit">
+                        LOGIN
+                    </LoginBtn>
+                </LoginForm>
+            </LoginContainer>
+        </PageContainer>
     );
 }
 

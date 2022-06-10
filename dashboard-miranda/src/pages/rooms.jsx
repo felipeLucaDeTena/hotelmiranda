@@ -4,9 +4,9 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import styled from "styled-components";
 import update from "immutability-helper";
+import { Link } from "react-router-dom";
 import Room from "../components/rooms/room";
 import TopRow from "../components/rooms/toprow";
-import Pagination from "../components/pagination";
 
 const RoomTable = styled.table`
     border-collapse: collapse;
@@ -17,15 +17,12 @@ const RoomTable = styled.table`
     text-align: left;
     padding: 0 30px;
     border-radius: 20px;
-    margin-top: 20px;
+    margin-top: 50px;
 `;
-
-const PaginationContainer = styled.div``;
+const Tb = styled.tbody``;
 
 function Rooms() {
     const [roomsData, setRoomsData] = useState("");
-    const [currentPage, setCurrentPage] = useState(1);
-    const [roomsPerPage] = useState(6);
 
     useEffect(() => {
         axios
@@ -47,7 +44,7 @@ function Rooms() {
     const renderRoom = useCallback(
         (room, index) => (
             <Room
-                key={room.id}
+                key={room.id + index}
                 index={index}
                 room={room}
                 moveCard={moveCard}
@@ -57,29 +54,18 @@ function Rooms() {
         []
     );
 
-    const indexOfLastRoom = currentPage * roomsPerPage;
-    const indexOfFirstRoom = indexOfLastRoom - roomsPerPage;
-    const currentRooms = roomsData.slice(indexOfFirstRoom, indexOfLastRoom);
-    const totalPagesNum = Math.ceil(roomsData.length / roomsPerPage);
-
     return (
         roomsData && (
-            <>
-                <DndProvider backend={HTML5Backend}>
-                    <RoomTable>
-                        <TopRow />
-                        {currentRooms.map((room, index) =>
+            <DndProvider backend={HTML5Backend}>
+                <RoomTable>
+                    <TopRow />
+                    <Tb>
+                        {roomsData.map((room, index) =>
                             renderRoom(room, index)
                         )}
-                    </RoomTable>
-                </DndProvider>
-                <Pagination
-                    roomsData={roomsData}
-                    pages={totalPagesNum}
-                    setCurrentPage={setCurrentPage}
-                    currentRooms={currentRooms}
-                />
-            </>
+                    </Tb>
+                </RoomTable>
+            </DndProvider>
         )
     );
 }

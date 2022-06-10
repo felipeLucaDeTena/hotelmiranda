@@ -56,7 +56,7 @@ const PageLinkButton = styled.a`
     justify-content: center;
 `;
 
-function Pagination({ pages, setCurrentPage, currentRooms, roomsData }) {
+function Pagination({ pages, setCurrentPage, current, data }) {
     const numOfPages = [];
 
     for (let i = 1; i <= pages; i += 1) {
@@ -72,7 +72,7 @@ function Pagination({ pages, setCurrentPage, currentRooms, roomsData }) {
     return (
         <Clearfix>
             <Showing>
-                Showing {currentRooms.length} out of {roomsData.length} entries
+                Showing {current.length} out of {data.length} entries
             </Showing>
             <PaginationContainer>
                 <PageItem>
@@ -84,7 +84,7 @@ function Pagination({ pages, setCurrentPage, currentRooms, roomsData }) {
                             )
                         }
                     >
-                        Previous
+                        Prev
                     </PageLinkButton>
                 </PageItem>
                 {numOfPages.map((page, index) => (

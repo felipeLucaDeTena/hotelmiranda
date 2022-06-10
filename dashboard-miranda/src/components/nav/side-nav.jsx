@@ -16,8 +16,10 @@ const NavContainer = styled.div`
     flex-direction: column;
     align-items: center;
     width: 18%;
-    min-width: 260px;
+    min-width: 300px;
     height: 100%;
+    background-color: white;
+    box-shadow: 26px 0px 41px -39px rgba(0, 0, 0, 0.24);
 `;
 
 const Nav = styled.div`
@@ -135,7 +137,7 @@ function SideNav() {
     useEffect(() => {
         axios
             .get("http://localhost:3001/user")
-            .then((resp) => setUserData(resp.data));
+            .then((resp) => setUserData(resp.data[0]));
     }, []);
 
     return (
@@ -171,9 +173,9 @@ function SideNav() {
                     </NavLink>
                 </Nav>
                 <ProfileContainer>
-                    <ProfileImg src={userData[0].personal.img} alt="none" />
-                    <ProfileName>{userData[0].personal.fullname}</ProfileName>
-                    <ProfileEmail>{userData[0].personal.email}</ProfileEmail>
+                    <ProfileImg src={userData.personal.img} alt="none" />
+                    <ProfileName>{userData.personal.fullname}</ProfileName>
+                    <ProfileEmail>{userData.personal.email}</ProfileEmail>
                     <ProfileButton>Edit</ProfileButton>
                 </ProfileContainer>
                 <NavFooter>

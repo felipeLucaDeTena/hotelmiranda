@@ -1,9 +1,29 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import BookingNumbers from "../components/dashboard/booking-numbers";
+import RecentBookings from "../components/dashboard/recentBookings";
+import Review from "../components/dashboard/review";
+import Stats from "../components/dashboard/stats";
+
+const Container = styled.div`
+    height: 1000px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`;
 
 function Dashboard() {
-    const { id } = useParams;
-    return <h1>{id}</h1>;
+    return (
+        <>
+            <BookingNumbers />
+            <Container>
+                <RecentBookings />
+                <Stats />
+            </Container>
+            <Review />
+        </>
+    );
 }
 export default Dashboard;
