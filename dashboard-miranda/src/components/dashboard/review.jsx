@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
 
 import styled from "styled-components";
+import ArrowPagination from "../arrowPagination";
 import Pagination from "../pagination";
 
 const Container = styled.div`
@@ -27,7 +28,7 @@ const Comments = styled.div`
     margin-bottom: 20px;
 `;
 const CommentContainer = styled.div`
-    width: 30%;
+    width: 27%;
     height: 70%;
     box-shadow: 0px 20px 30px #00000014;
     border-radius: 10px;
@@ -91,44 +92,47 @@ function Review() {
         <Container>
             <H2>Latest Review by Customers</H2>
             <Comments>
-                {comments &&
-                    current.map(
-                        (e, i) =>
-                            i < 3 && (
-                                <CommentContainer key={e + i}>
-                                    <Comment>{e.review.comment}</Comment>
-                                    <ProfileContainer>
-                                        <Img
-                                            src={
-                                                e.img ||
-                                                "/blank-profile-photo.jpg"
-                                            }
-                                        />
-                                        <DataContainer>
-                                            <Name>{e.customer.fullname}</Name>
-                                            <Time>
-                                                {moment(e.date).fromNow()}
-                                            </Time>
-                                        </DataContainer>
-                                        <IconContainer>
-                                            <AiOutlineCheckCircle
-                                                style={{ color: "green" }}
+                <ArrowPagination
+                    data={comments}
+                    pages={totalPagesNum}
+                    setCurrentPage={setCurrentPage}
+                    current={current}
+                >
+                    {comments &&
+                        current.map(
+                            (e, i) =>
+                                i < 3 && (
+                                    <CommentContainer key={e + i}>
+                                        <Comment>{e.review.comment}</Comment>
+                                        <ProfileContainer>
+                                            <Img
+                                                src={
+                                                    e.img ||
+                                                    "/blank-profile-photo.jpg"
+                                                }
                                             />
-                                            <AiOutlineCloseCircle
-                                                style={{ color: "red" }}
-                                            />
-                                        </IconContainer>
-                                    </ProfileContainer>
-                                </CommentContainer>
-                            )
-                    )}
+                                            <DataContainer>
+                                                <Name>
+                                                    {e.customer.fullname}
+                                                </Name>
+                                                <Time>
+                                                    {moment(e.date).fromNow()}
+                                                </Time>
+                                            </DataContainer>
+                                            <IconContainer>
+                                                <AiOutlineCheckCircle
+                                                    style={{ color: "green" }}
+                                                />
+                                                <AiOutlineCloseCircle
+                                                    style={{ color: "red" }}
+                                                />
+                                            </IconContainer>
+                                        </ProfileContainer>
+                                    </CommentContainer>
+                                )
+                        )}
+                </ArrowPagination>
             </Comments>
-            <Pagination
-                data={comments}
-                pages={totalPagesNum}
-                setCurrentPage={setCurrentPage}
-                current={current}
-            />
         </Container>
     );
 }

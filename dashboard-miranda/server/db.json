@@ -1,5 +1,5 @@
 {
-    "user": [
+    "users": [
         {
             "id": "129909b1628046c6b42a3eed9408d2c5",
             "personal": {
@@ -587,7 +587,7 @@
                 "type": "Single Bed",
                 "number": 25
             },
-            "Status": "green"
+            "status": "Booked"
         },
         {
             "guest": {
@@ -602,7 +602,7 @@
                 "type": "Double Bed",
                 "number": 79
             },
-            "Status": "red"
+            "status": "Refund"
         },
         {
             "guest": {
@@ -617,7 +617,7 @@
                 "type": "Double Bed",
                 "number": 189
             },
-            "Status": "green"
+            "status": "Booked"
         },
         {
             "guest": {
@@ -632,7 +632,7 @@
                 "type": "Double Bed",
                 "number": 7
             },
-            "Status": "red"
+            "status": "Refund"
         },
         {
             "guest": {
@@ -647,7 +647,7 @@
                 "type": "Suite",
                 "number": 62
             },
-            "Status": "red"
+            "status": "Refund"
         },
         {
             "guest": {
@@ -662,7 +662,7 @@
                 "type": "Suite",
                 "number": 160
             },
-            "Status": "green"
+            "status": "Booked"
         },
         {
             "guest": {
@@ -677,7 +677,7 @@
                 "type": "Single Bed",
                 "number": 95
             },
-            "Status": "red"
+            "status": "Refund"
         },
         {
             "guest": {
@@ -692,7 +692,7 @@
                 "type": "Single Bed",
                 "number": 35
             },
-            "Status": "green"
+            "status": "Booked"
         },
         {
             "guest": {
@@ -707,7 +707,7 @@
                 "type": "Double Bed",
                 "number": 151
             },
-            "Status": "red"
+            "status": "Refund"
         },
         {
             "guest": {
@@ -722,7 +722,7 @@
                 "type": "Suite",
                 "number": 19
             },
-            "Status": "green"
+            "status": "Booked"
         },
         {
             "guest": {
@@ -737,7 +737,7 @@
                 "type": "Single Bed",
                 "number": 145
             },
-            "Status": "red"
+            "status": "Refund"
         },
         {
             "guest": {
@@ -752,7 +752,7 @@
                 "type": "Single Bed",
                 "number": 61
             },
-            "Status": "green"
+            "status": "Booked"
         },
         {
             "guest": {
@@ -767,7 +767,7 @@
                 "type": "Double Superior",
                 "number": 106
             },
-            "Status": "yellow"
+            "status": "inProgress"
         },
         {
             "guest": {
@@ -782,7 +782,7 @@
                 "type": "Suite",
                 "number": 90
             },
-            "Status": "red"
+            "status": "Refund"
         },
         {
             "guest": {
@@ -797,7 +797,7 @@
                 "type": "Suite",
                 "number": 11
             },
-            "Status": "yellow"
+            "status": "inProgress"
         },
         {
             "guest": {
@@ -812,7 +812,7 @@
                 "type": "Suite",
                 "number": 192
             },
-            "Status": "red"
+            "status": "Refund"
         },
         {
             "guest": {
@@ -827,7 +827,7 @@
                 "type": "DoubleSuperior",
                 "number": 97
             },
-            "Status": "green"
+            "status": "Booked"
         },
         {
             "guest": {
@@ -842,7 +842,7 @@
                 "type": "Single Bed",
                 "number": 177
             },
-            "Status": "green"
+            "status": "Booked"
         },
         {
             "guest": {
@@ -857,7 +857,7 @@
                 "type": "Single Bed",
                 "number": 101
             },
-            "Status": "yellow"
+            "status": "inProgress"
         },
         {
             "guest": {
@@ -872,7 +872,7 @@
                 "type": "Double Bed",
                 "number": 133
             },
-            "Status": "green"
+            "status": "Booked"
         },
         {
             "guest": {
@@ -887,7 +887,7 @@
                 "type": "Double Superior",
                 "number": 99
             },
-            "Status": "red"
+            "status": "Refund"
         },
         {
             "guest": {
@@ -902,7 +902,7 @@
                 "type": "Single Bed",
                 "number": 159
             },
-            "Status": "yellow"
+            "status": "inProgress"
         },
         {
             "guest": {
@@ -917,7 +917,7 @@
                 "type": "Single Bed",
                 "number": 22
             },
-            "Status": "yellow"
+            "status": "inProgress"
         },
         {
             "guest": {
@@ -932,7 +932,7 @@
                 "type": "Single Bed",
                 "number": 49
             },
-            "Status": "red"
+            "status": "Refund"
         },
         {
             "guest": {
@@ -947,7 +947,7 @@
                 "type": "Double Bed",
                 "number": 105
             },
-            "Status": "red"
+            "status": "Refund"
         },
         {
             "guest": {
@@ -962,7 +962,7 @@
                 "type": "Single Bed",
                 "number": 54
             },
-            "Status": "green"
+            "status": "Booked"
         },
         {
             "guest": {
@@ -977,7 +977,7 @@
                 "type": "Double Superior",
                 "number": 51
             },
-            "Status": "yellow"
+            "status": "inProgress"
         },
         {
             "guest": {
@@ -992,7 +992,7 @@
                 "type": "Double Superior",
                 "number": 61
             },
-            "Status": "yellow"
+            "status": "inProgress"
         },
         {
             "guest": {
@@ -1007,7 +1007,7 @@
                 "type": "Suite",
                 "number": 189
             },
-            "Status": "green"
+            "status": "Booked"
         },
         {
             "guest": {
@@ -1022,7 +1022,7 @@
                 "type": "Single Bed",
                 "number": 87
             },
-            "Status": "yellow"
+            "status": "inProgress"
         }
     ],
     "contact": [
