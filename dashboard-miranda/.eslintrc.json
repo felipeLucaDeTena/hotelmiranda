@@ -2,8 +2,7 @@
     "env": {
         "browser": true,
         "es2021": true,
-        "jest": true,
-        "cypress/globals": true
+        "jest": true
     },
     "extends": [
         "airbnb",
@@ -11,7 +10,8 @@
         "react-app/jest",
         "plugin:react/recommended",
         "plugin:react/jsx-runtime",
-        "prettier"
+        "prettier",
+        "plugin:cypress/recommended"
     ],
     "parserOptions": {
         "ecmaFeatures": {

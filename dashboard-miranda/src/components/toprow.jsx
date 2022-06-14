@@ -1,7 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React from "react";
 import styled from "styled-components";
-import { topRowRooms } from "../../data/toprow-data";
 
 const Thead = styled.thead`
     height: 60px;
@@ -13,11 +12,11 @@ const Th = styled.th`
     color: #393939;
     padding: 0 20px;
 `;
-function TopRow() {
+function TopRow({ data }) {
     return (
         <Thead>
             <tr>
-                {topRowRooms.map((element, i) => (
+                {data.map((element, i) => (
                     <Th key={element + i}>{element}</Th>
                 ))}
             </tr>

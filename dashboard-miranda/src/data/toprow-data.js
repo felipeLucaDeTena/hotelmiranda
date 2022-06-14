@@ -6,3 +6,12 @@ export const topRowRooms = [
     "Rate",
     "Status",
 ];
+export const topRowBookings = [
+    "Guest",
+    "Order Date",
+    "Check In",
+    "Check Out",
+    "Special Request",
+    "Room Type",
+    "Status",
+];

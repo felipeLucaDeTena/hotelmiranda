@@ -72,7 +72,8 @@ function Pagination({ pages, setCurrentPage, current, data }) {
     return (
         <Clearfix>
             <Showing>
-                Showing {current.length} out of {data.length} entries
+                Showing {current.length * currentButton} out of {data.length}{" "}
+                entries
             </Showing>
             <PaginationContainer>
                 <PageItem>

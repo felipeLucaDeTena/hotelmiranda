@@ -4,9 +4,9 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import styled from "styled-components";
 import update from "immutability-helper";
-import { Link } from "react-router-dom";
 import Room from "../components/rooms/room";
-import TopRow from "../components/rooms/toprow";
+import { topRowRooms } from "../data/toprow-data";
+import TopRow from "../components/toprow";
 
 const RoomTable = styled.table`
     border-collapse: collapse;
@@ -58,7 +58,7 @@ function Rooms() {
         roomsData && (
             <DndProvider backend={HTML5Backend}>
                 <RoomTable>
-                    <TopRow />
+                    <TopRow data={topRowRooms} />
                     <Tb>
                         {roomsData.map((room, index) =>
                             renderRoom(room, index)
