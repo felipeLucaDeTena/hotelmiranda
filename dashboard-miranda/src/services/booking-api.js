@@ -11,8 +11,8 @@ export function get(id) {
 export function set(booking) {
     return axios.post(BOOKINGS_API, booking);
 }
-export function update(booking) {
-    return axios.patch(BOOKINGS_API + booking.id, booking);
+export function update(id, parcialBooking) {
+    return axios.patch(BOOKINGS_API + id, parcialBooking);
 }
 export function remove(id) {
     return axios.delete(BOOKINGS_API + id);

@@ -11,8 +11,8 @@ export function get(id) {
 export function set(comment) {
     return axios.post(CONTACT_API, comment);
 }
-export function update(comment) {
-    return axios.patch(CONTACT_API + comment.id, comment);
+export function update(id, ParcialComment) {
+    return axios.patch(CONTACT_API + id, ParcialComment);
 }
 export function remove(id) {
     return axios.delete(CONTACT_API + id);

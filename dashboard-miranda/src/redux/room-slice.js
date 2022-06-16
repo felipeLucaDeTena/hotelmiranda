@@ -23,8 +23,8 @@ export const setRoom = createAsyncThunk(
 );
 export const updateRoom = createAsyncThunk(
     "rooms/updateRoom",
-    async (room, thunkAPI) => {
-        const response = await api.update(room);
+    async (id, parcialRoom, thunkAPI) => {
+        const response = await api.update(id, parcialRoom);
         return response.data;
     }
 );
@@ -45,22 +45,24 @@ export const roomSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: {
-        [getRooms.fulfilled]: (state, payload) => {
-            state.rooms = payload;
+        [getRooms.fulfilled]: (state, action) => {
+            state.rooms = action.payload;
         },
-        [getRoomById.fulfilled]: (state, payload) => {
-            state.rooms = payload;
+        [getRoomById.fulfilled]: (state, action) => {
+            state.rooms = action.payload;
         },
-        [setRoom.fulfilled]: (state, payload) => {
-            state.rooms = [...state.room, payload];
+        [setRoom.fulfilled]: (state, action) => {
+            state.rooms = [...state.room, action.payload];
         },
-        [updateRoom.fulfilled]: (state, payload) => {
+        [updateRoom.fulfilled]: (state, action) => {
             state.rooms = state.map((item) =>
-                item.id === payload.id ? payload : item
+                item.id === action.payload.id ? action.payload : item
             );
         },
-        [removeRoom.fulfilled]: (state, payload) => {
-            state.rooms = state.rooms.filter((item) => item.id !== payload.id);
+        [removeRoom.fulfilled]: (state, action) => {
+            state.rooms = state.rooms.filter(
+                (item) => item.id !== action.payload.id
+            );
         },
     },
 });

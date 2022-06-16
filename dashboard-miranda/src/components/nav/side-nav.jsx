@@ -136,7 +136,7 @@ function SideNav() {
 
     useEffect(() => {
         axios
-            .get("http://localhost:3001/user")
+            .get("http://localhost:4500/users")
             .then((resp) => setUserData(resp.data[0]));
     }, []);
 

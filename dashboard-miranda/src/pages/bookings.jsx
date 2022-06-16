@@ -1,10 +1,11 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Booking from "../components/bookings/booking";
 import Pagination from "../components/pagination";
 import TopRow from "../components/toprow";
 import { topRowBookings } from "../data/toprow-data";
+import { getBookings } from "../redux/booking-slice";
 
 const RoomTable = styled.table`
     border-collapse: collapse;
@@ -20,14 +21,17 @@ const RoomTable = styled.table`
 const Tb = styled.tbody``;
 
 function Rooms() {
+    const bookingsState = useSelector((state) => state.bookings);
     const [bookingsData, setBookingsData] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
     const [perPage] = useState(6);
 
+    const dispatch = useDispatch();
+
     useEffect(() => {
-        axios
-            .get("http://localhost:3001/bookings")
-            .then((resp) => setBookingsData(resp.data));
+        dispatch(getBookings()).then(() => {
+            setBookingsData(bookingsState.bookings);
+        });
     }, []);
 
     const indexOfLastRoom = currentPage * perPage;
@@ -42,7 +46,7 @@ function Rooms() {
                     <TopRow data={topRowBookings} />
                     <Tb>
                         {current.map((booking) => (
-                            <Booking key={booking.guest.id} booking={booking} />
+                            <Booking key={booking.id} booking={booking} />
                         ))}
                     </Tb>
                 </RoomTable>

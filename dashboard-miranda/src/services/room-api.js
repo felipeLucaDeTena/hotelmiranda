@@ -11,8 +11,8 @@ export function get(id) {
 export function set(room) {
     return axios.post(ROOMS_API, room);
 }
-export function update(room) {
-    return axios.patch(ROOMS_API + room.id, room);
+export function update(id, parcialRoom) {
+    return axios.patch(ROOMS_API + id, parcialRoom);
 }
 export function remove(id) {
     return axios.delete(ROOMS_API + id);

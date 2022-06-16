@@ -1,20 +1,20 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import Room from "../components/rooms/room";
+import { getRoomById } from "../redux/room-slice";
 
 function RoomDetails() {
     const { id } = useParams();
-    const [room, setRoom] = useState("");
+    const roomState = useSelector((state) => state.rooms);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        axios
-            .get(`http://localhost:3001/rooms/${id}`)
-            .then((resp) => console.log(room) && setRoom(resp.data));
+        dispatch(getRoomById(id));
     }, []);
 
-    return <h1>{id}</h1>;
+    console.log(roomState.rooms);
+    return <h1>{roomState.rooms.id}</h1>;
 }
 
 export default RoomDetails;

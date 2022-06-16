@@ -26,8 +26,8 @@ export const setBooking = createAsyncThunk(
 );
 export const updateBooking = createAsyncThunk(
     "bookings/updateBooking",
-    async (booking, thunkAPI) => {
-        const response = await api.update(booking);
+    async (id, parcialBooking, thunkAPI) => {
+        const response = await api.update(id, parcialBooking);
         return response.data;
     }
 );
@@ -48,23 +48,23 @@ export const bookingSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: {
-        [getBookings.fulfilled]: (state, payload) => {
-            state.bookings = payload;
+        [getBookings.fulfilled]: (state, action) => {
+            state.bookings = action.payload;
         },
-        [getBookingById.fulfilled]: (state, payload) => {
-            state.bookings = payload;
+        [getBookingById.fulfilled]: (state, action) => {
+            state.bookings = action.payload;
         },
-        [setBooking.fulfilled]: (state, payload) => {
-            state.bookings = [...state.booking, payload];
+        [setBooking.fulfilled]: (state, action) => {
+            state.bookings = [...state.booking, action.payload];
         },
-        [updateBooking.fulfilled]: (state, payload) => {
+        [updateBooking.fulfilled]: (state, action) => {
             state.bookings = state.map((item) =>
-                item.id === payload.id ? payload : item
+                item.id === action.payload.id ? action.payload : item
             );
         },
-        [removeBooking.fulfilled]: (state, payload) => {
+        [removeBooking.fulfilled]: (state, action) => {
             state.bookings = state.bookings.filter(
-                (item) => item.id !== payload.id
+                (item) => item.id !== action.payload.id
             );
         },
     },

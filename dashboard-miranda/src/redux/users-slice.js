@@ -23,8 +23,8 @@ export const setUser = createAsyncThunk(
 );
 export const updateUser = createAsyncThunk(
     "users/updateUser",
-    async (user, thunkAPI) => {
-        const response = await api.update(user);
+    async (id, parcialUser, thunkAPI) => {
+        const response = await api.update(id, parcialUser);
         return response.data;
     }
 );
@@ -45,22 +45,24 @@ const userSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: {
-        [getUsers.fulfilled]: (state, payload) => {
-            state.users = payload;
+        [getUsers.fulfilled]: (state, action) => {
+            state.users = action.payload;
         },
-        [getUserById.fulfilled]: (state, payload) => {
-            state.users = payload;
+        [getUserById.fulfilled]: (state, action) => {
+            state.users = action.payload;
         },
-        [setUser.fulfilled]: (state, payload) => {
-            state.users = [...state.user, payload];
+        [setUser.fulfilled]: (state, action) => {
+            state.users = [...state.user, action.payload];
         },
-        [updateUser.fulfilled]: (state, payload) => {
+        [updateUser.fulfilled]: (state, action) => {
             state.users = state.map((item) =>
-                item.id === payload.id ? payload : item
+                item.id === action.payload.id ? action.payload : item
             );
         },
-        [removeUser.fulfilled]: (state, payload) => {
-            state.users = state.users.filter((item) => item.id !== payload.id);
+        [removeUser.fulfilled]: (state, action) => {
+            state.users = state.users.filter(
+                (item) => item.id !== action.payload.id
+            );
         },
     },
 });

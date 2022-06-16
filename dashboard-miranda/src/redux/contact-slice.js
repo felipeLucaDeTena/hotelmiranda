@@ -19,8 +19,8 @@ export const getContactById = createAsyncThunk(
 );
 export const setContact = createAsyncThunk(
     "contacts/setContact",
-    async (contact, thunkAPI) => {
-        const response = await api.set(contact);
+    async (id, parcialContact, thunkAPI) => {
+        const response = await api.set(id, parcialContact);
         return response.data;
     }
 );
