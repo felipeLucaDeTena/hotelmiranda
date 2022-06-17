@@ -1,8 +1,11 @@
 /* eslint-disable no-param-reassign */
 import dayjs from "dayjs";
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { removeBooking } from "../../features/booking-slice";
+import DropDown from "../drop-down";
 import DatesContainer from "./dateComponent";
 
 const Td = styled.td`
@@ -72,6 +75,12 @@ function Booking({ booking }) {
         .format("MMMM D YYYY, h:mm A")
         .split(",");
 
+    const dispatch = useDispatch();
+    const handleDelete = () => {
+        console.log(booking);
+        dispatch(removeBooking(booking.id));
+    };
+
     return (
         <Tr>
             <Td>
@@ -111,6 +120,9 @@ function Booking({ booking }) {
                 >
                     {booking.status}
                 </StatusButton>
+            </Td>
+            <Td>
+                <DropDown handleDelete={handleDelete} id={booking.id} />
             </Td>
         </Tr>
     );

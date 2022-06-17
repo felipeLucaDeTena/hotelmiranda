@@ -5,37 +5,37 @@ import * as api from "../services/booking-api";
 // First, create the thunk
 export const getBookings = createAsyncThunk(
     "bookings/getBookings",
-    async (thunkAPI) => {
+    async () => {
         const response = await api.getAll();
         return response.data;
     }
 );
 export const getBookingById = createAsyncThunk(
     "bookings/getBookingById",
-    async (id, thunkAPI) => {
+    async (id) => {
         const response = await api.get(id);
         return response.data;
     }
 );
 export const setBooking = createAsyncThunk(
     "bookings/setBooking",
-    async (booking, thunkAPI) => {
+    async (booking) => {
         const response = await api.set(booking);
         return response.data;
     }
 );
 export const updateBooking = createAsyncThunk(
     "bookings/updateBooking",
-    async (id, parcialBooking, thunkAPI) => {
+    async (id, parcialBooking) => {
         const response = await api.update(id, parcialBooking);
         return response.data;
     }
 );
 export const removeBooking = createAsyncThunk(
     "bookings/removeBooking",
-    async (id, thunkAPI) => {
+    async (id) => {
         const response = await api.remove(id);
-        return response.data;
+        return { id };
     }
 );
 

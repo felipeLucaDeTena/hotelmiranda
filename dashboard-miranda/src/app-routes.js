@@ -21,7 +21,7 @@ const Pagecontainer = styled.div`
 export const routes = [
     {
         name: "dashboard",
-        path: "/",
+        path: "/dashboard",
         component: (
             <>
                 <SideNav />

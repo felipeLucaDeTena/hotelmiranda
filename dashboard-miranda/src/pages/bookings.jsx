@@ -5,7 +5,7 @@ import Booking from "../components/bookings/booking";
 import Pagination from "../components/pagination";
 import TopRow from "../components/toprow";
 import { topRowBookings } from "../data/toprow-data";
-import { getBookings } from "../redux/booking-slice";
+import { getBookings } from "../features/booking-slice";
 
 const RoomTable = styled.table`
     border-collapse: collapse;
@@ -32,6 +32,10 @@ function Rooms() {
             setBookingsData(bookingsState.bookings);
         });
     }, []);
+
+    useEffect(() => {
+        setBookingsData(bookingsState.bookings);
+    }, [bookingsState]);
 
     const indexOfLastRoom = currentPage * perPage;
     const indexOfFirstRoom = indexOfLastRoom - perPage;

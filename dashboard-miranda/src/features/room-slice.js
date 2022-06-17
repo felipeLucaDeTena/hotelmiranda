@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import * as api from "../services/room-api";
 
 // First, create the thunk
-export const getRooms = createAsyncThunk("rooms/getRooms", async (thunkAPI) => {
+export const getRooms = createAsyncThunk("rooms/getRooms", async () => {
     const response = await api.getAll();
     return response.data;
 });
@@ -28,13 +28,11 @@ export const updateRoom = createAsyncThunk(
         return response.data;
     }
 );
-export const removeRoom = createAsyncThunk(
-    "rooms/removeRoom",
-    async (id, thunkAPI) => {
-        const response = await api.remove(id);
-        return response.data;
-    }
-);
+export const removeRoom = createAsyncThunk("rooms/removeRoom", async (id) => {
+    const response = await api.remove(id);
+    console.log("resp", response.data);
+    return { id };
+});
 
 export const initialState = {
     rooms: [],
@@ -60,6 +58,7 @@ export const roomSlice = createSlice({
             );
         },
         [removeRoom.fulfilled]: (state, action) => {
+            console.log("esto", action);
             state.rooms = state.rooms.filter(
                 (item) => item.id !== action.payload.id
             );

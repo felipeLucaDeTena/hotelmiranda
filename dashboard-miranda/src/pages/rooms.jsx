@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Room from "../components/rooms/room";
 import { topRowRooms } from "../data/toprow-data";
 import TopRow from "../components/toprow";
-import { getRooms } from "../redux/room-slice";
+import { getRooms } from "../features/room-slice";
 
 const RoomTable = styled.table`
     border-collapse: collapse;
@@ -27,22 +27,30 @@ function Rooms() {
     const [roomsData, setRoomsData] = useState("");
 
     const dispatch = useDispatch();
+
     useEffect(() => {
         dispatch(getRooms()).then(() => {
             setRoomsData(roomsState.rooms);
         });
     }, []);
 
-    const moveCard = useCallback((dragIndex, hoverIndex) => {
-        setRoomsData((prevCards) =>
-            update(prevCards, {
-                $splice: [
-                    [dragIndex, 1],
-                    [hoverIndex, 0, prevCards[dragIndex]],
-                ],
-            })
-        );
-    }, []);
+    useEffect(() => {
+        setRoomsData(roomsState.rooms);
+    }, [roomsState]);
+
+    const moveCard = useCallback(
+        (dragIndex, hoverIndex) => {
+            setRoomsData((prevCards) =>
+                update(prevCards, {
+                    $splice: [
+                        [dragIndex, 1],
+                        [hoverIndex, 0, prevCards[dragIndex]],
+                    ],
+                })
+            );
+        },
+        [roomsData]
+    );
 
     const renderRoom = useCallback(
         (room, index) => (

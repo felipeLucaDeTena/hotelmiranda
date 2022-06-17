@@ -4,7 +4,10 @@ import { useDrag, useDrop } from "react-dnd";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { useDispatch } from "react-redux";
 import { ItemType } from "../../data/itemtypes";
+import DropDown from "../drop-down";
+import { removeRoom } from "../../features/room-slice";
 
 const Td = styled.td`
     padding: 0 20px;
@@ -13,6 +16,7 @@ const Tr = styled.tr`
     width: 100%;
     height: 100px;
     border-bottom: 1px solid #c2c2c22c;
+    position: relative;
 `;
 const FacilitiesContainer = styled.div`
     display: flex;
@@ -101,6 +105,12 @@ function Room({ id, room, index, moveCard }) {
     });
     const opacity = isDragging ? 0 : 1;
     drag(drop(ref));
+
+    const dispatch = useDispatch();
+    const handleDelete = () => {
+        dispatch(removeRoom(id));
+    };
+
     return (
         <Tr ref={ref} style={{ opacity }} data-handler-id={handlerId}>
             <Td>
@@ -143,7 +153,7 @@ function Room({ id, room, index, moveCard }) {
                 </StatusButton>
             </Td>
             <Td>
-                <BsThreeDotsVertical />
+                <DropDown handleDelete={handleDelete} id={room.id} />
             </Td>
         </Tr>
     );

@@ -15,7 +15,7 @@ function App() {
 
     useEffect(() => {
         authState.authenticated
-            ? navigate("/", { replace: true })
+            ? navigate("/dashboard", { replace: true })
             : navigate("/login", { replace: true });
     }, [authState.authenticated]);
 

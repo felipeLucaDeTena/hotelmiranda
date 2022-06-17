@@ -5,6 +5,7 @@ import { AiOutlineBell } from "react-icons/ai";
 import { BiEnvelope } from "react-icons/bi";
 import { FiLogOut } from "react-icons/fi";
 import "../../iconstyles.css";
+import { useLocation } from "react-router";
 import { useAuth } from "../../context/authcontext";
 
 const Nav = styled.nav`
@@ -38,6 +39,12 @@ const TitleContainer = styled.div`
     align-items: center;
     margin-left: 40px;
 `;
+const Title = styled.p`
+    ::first-letter {
+        text-transform: capitalize;
+    }
+    font-size: 1.8rem;
+`;
 const IconsContainer = styled.div`
     display: flex;
     align-items: center;
@@ -45,6 +52,10 @@ const IconsContainer = styled.div`
 
 function TopNav() {
     const { dispatchAuth } = useAuth();
+    const location = useLocation();
+
+    console.log(location);
+    const title = location.pathname.substring(1);
 
     const handleLogout = (ev) => {
         ev.preventDefault();
@@ -55,7 +66,7 @@ function TopNav() {
         <Nav>
             <TitleContainer>
                 <RiBarChartHorizontalLine className="top-icons--2" />
-                <h1>Title</h1>
+                <Title>{title}</Title>
             </TitleContainer>
             <IconsContainer>
                 <BiEnvelope className="top-icons" />

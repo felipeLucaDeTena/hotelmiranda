@@ -3,8 +3,7 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { HandleError } from "../components/error";
-import { loginDB } from "../data/logindb";
-import { getUsers } from "../redux/users-slice";
+import { getUsers } from "../features/users-slice";
 import { useAuth } from "../context/authcontext";
 
 const LoginContainer = styled.div`
@@ -68,14 +67,13 @@ const LoginBtn = styled.button`
 `;
 
 function LogIn() {
+    const userState = useSelector((state) => state.users);
     const [myEmail, setMyEmail] = useState("");
     const [myPassword, setMyPassword] = useState("");
     const [error, setError] = useState(false);
+    const { dispatchAuth } = useAuth();
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
-    const userState = useSelector((state) => state.users);
-    const { dispatchAuth } = useAuth();
 
     const handleSubmit = (ev) => {
         ev.preventDefault();

@@ -154,7 +154,7 @@ function SideNav() {
                     </LogoTitleContainer>
                 </LogoContainer>
                 <Nav>
-                    <NavLink to="/">
+                    <NavLink to="/dashboard">
                         <DashboardIcon className="icons" /> Dashboard
                     </NavLink>
                     <NavLink to="/rooms">
