@@ -132,13 +132,15 @@ const ProfileButton = styled.button`
 `;
 
 function SideNav() {
-    const [userData, setUserData] = useState("");
+    // const [userData, setUserData] = useState("");
 
-    useEffect(() => {
-        axios
-            .get("http://localhost:4500/users")
-            .then((resp) => setUserData(resp.data[0]));
-    }, []);
+    // useEffect(() => {
+    //     axios
+    //         .get("http://localhost:4500/users")
+    //         .then((resp) => setUserData(resp.data[0]));
+    // }, []);
+
+    const userData = JSON.parse(localStorage.getItem("authenticated"));
 
     return (
         userData && (
