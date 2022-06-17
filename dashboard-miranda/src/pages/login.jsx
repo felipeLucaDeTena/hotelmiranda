@@ -1,9 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/authcontext";
+import { useDispatch, useSelector } from "react-redux";
 import { HandleError } from "../components/error";
 import { loginDB } from "../data/logindb";
+import { getUsers } from "../redux/users-slice";
+import { useAuth } from "../context/authcontext";
 
 const LoginContainer = styled.div`
     display: flex;
@@ -65,21 +67,30 @@ const LoginBtn = styled.button`
     }
 `;
 
-function LogIn({ setAuthenticated }) {
+function LogIn() {
     const [myEmail, setMyEmail] = useState("");
     const [myPassword, setMyPassword] = useState("");
     const [error, setError] = useState(false);
-
+    const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const userState = useSelector((state) => state.users);
+    const { dispatchAuth } = useAuth();
 
     const handleSubmit = (ev) => {
         ev.preventDefault();
-
-        console.log(myEmail + myPassword);
-        loginDB.email === myEmail && loginDB.password === myPassword
-            ? setAuthenticated(true) && navigate("/", { replace: true })
+        const myUser = userState.users.find(
+            (usr) => usr.personal.email === myEmail
+        );
+        myUser.personal.password === myPassword
+            ? dispatchAuth({ type: "login", payload: myUser }) &&
+              navigate("/", { replace: true })
             : setError(true);
     };
+
+    useEffect(() => {
+        dispatch(getUsers());
+    }, []);
 
     return (
         <PageContainer>

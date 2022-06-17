@@ -8,12 +8,14 @@
     color: #135846;
     margin: 0 20px;
 }
+
 .top-icons--2 {
-    font-size: 30px;
-    color: #799283;
-}
-.top-icons--3 {
     font-size: 30px;
     color: #135846;
     margin-right: 40px;
+}
+
+.top-icons:hover {
+    color: red;
+    cursor: pointer;
 }

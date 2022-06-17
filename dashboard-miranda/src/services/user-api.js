@@ -11,8 +11,8 @@ export function get(id) {
 export function set(user) {
     return axios.post(USERS_API, user);
 }
-export function update(user) {
-    return axios.patch(USERS_API + user.id, user);
+export function update(id, parcialUser) {
+    return axios.patch(USERS_API + id, parcialUser);
 }
 export function remove(id) {
     return axios.delete(USERS_API + id);

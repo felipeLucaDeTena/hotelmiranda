@@ -2,6 +2,7 @@ import { Component } from "react";
 import styled from "styled-components";
 import SideNav from "./components/nav/side-nav";
 import TopNav from "./components/nav/top-nav";
+import BookingDetails from "./pages/booking-details";
 import Bookings from "./pages/bookings";
 import Contact from "./pages/contact";
 import Dashboard from "./pages/dashboard";
@@ -92,6 +93,19 @@ export const routes = [
                 <Pagecontainer>
                     <TopNav />
                     <RoomDetails />
+                </Pagecontainer>
+            </>
+        ),
+    },
+    {
+        name: "bookings",
+        path: "/booking/:id",
+        component: (
+            <>
+                <SideNav />
+                <Pagecontainer>
+                    <TopNav />
+                    <BookingDetails />
                 </Pagecontainer>
             </>
         ),

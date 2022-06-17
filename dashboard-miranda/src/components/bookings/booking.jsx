@@ -1,9 +1,8 @@
 /* eslint-disable no-param-reassign */
 import dayjs from "dayjs";
-import React, { useRef } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { ItemType } from "../../data/itemtypes";
 import DatesContainer from "./dateComponent";
 
 const Td = styled.td`
@@ -73,8 +72,6 @@ function Booking({ booking }) {
         .format("MMMM D YYYY, h:mm A")
         .split(",");
 
-    console.log(orderDate);
-
     return (
         <Tr>
             <Td>
@@ -85,7 +82,7 @@ function Booking({ booking }) {
                     >
                         <P>{booking.guest.fullname}</P>
                     </Link>
-                    <Id>{booking.guest.id.slice(0, -23)}</Id>
+                    <Id>{booking.id.slice(0, -23)}</Id>
                 </NameContainer>
             </Td>
             <Td>

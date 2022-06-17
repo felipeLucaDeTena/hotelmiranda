@@ -3,6 +3,7 @@ import React, { useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { BsThreeDotsVertical } from "react-icons/bs";
 import { ItemType } from "../../data/itemtypes";
 
 const Td = styled.td`
@@ -140,6 +141,9 @@ function Room({ id, room, index, moveCard }) {
                 >
                     {room.status}
                 </StatusButton>
+            </Td>
+            <Td>
+                <BsThreeDotsVertical />
             </Td>
         </Tr>
     );

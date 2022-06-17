@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import axios from "axios";
-import moment from "moment";
+import dayjs from "dayjs";
 import React, { useEffect, useState } from "react";
 import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
 
@@ -73,13 +73,16 @@ const H2 = styled.h2`
 `;
 
 function Review() {
+    // eslint-disable-next-line global-require
+    const relativeTime = require("dayjs/plugin/relativeTime");
+    dayjs.extend(relativeTime);
     const [comments, setComments] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
     const [perPage] = useState(3);
 
     useEffect(() => {
         axios
-            .get("http://localhost:3001/contact")
+            .get("http://localhost:4500/contact")
             .then((resp) => setComments(resp.data));
     }, []);
 
@@ -116,7 +119,7 @@ function Review() {
                                                     {e.customer.fullname}
                                                 </Name>
                                                 <Time>
-                                                    {moment(e.date).fromNow()}
+                                                    {dayjs(e.date).fromNow()}
                                                 </Time>
                                             </DataContainer>
                                             <IconContainer>

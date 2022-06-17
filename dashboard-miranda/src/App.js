@@ -1,50 +1,36 @@
 /* eslint-disable react/no-array-index-key */
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
 import LogIn from "./pages/login";
 import { routes } from "./app-routes";
-import { AuthProvider } from "./context/authcontext";
 import { RequireAuth } from "./components/requireAuth";
-import RoomDetails from "./pages/room-details";
+import { useAuth } from "./context/authcontext";
 
 function App() {
+    const { authState } = useAuth();
+    console.log(authState);
     const navigate = useNavigate();
-    const [authenticated, setAuthenticated] = useState(
-        localStorage.getItem("authenticated") !== null
-    );
 
     useEffect(() => {
-        authenticated
-            ? localStorage.setItem("authenticated", "1")
-            : localStorage.removeItem("authenticated");
-        authenticated
+        authState.authenticated
             ? navigate("/", { replace: true })
             : navigate("/login", { replace: true });
-    }, [authenticated]);
+    }, [authState.authenticated]);
 
     return (
         <div className="App">
-            <AuthProvider authenticated={authenticated}>
-                <Routes>
+            <Routes>
+                <Route path="/login" element={<LogIn />} />
+                {routes.map((route, i) => (
                     <Route
-                        path="/login"
-                        element={<LogIn setAuthenticated={setAuthenticated} />}
+                        key={route.name + i}
+                        path={route.path}
+                        element={<RequireAuth>{route.component}</RequireAuth>}
                     />
-                    {routes.map((route, i) => (
-                        <Route
-                            key={route.name + i}
-                            path={route.path}
-                            element={
-                                <RequireAuth authenticated={authenticated}>
-                                    {route.component}
-                                </RequireAuth>
-                            }
-                        />
-                    ))}
-                </Routes>
-            </AuthProvider>
+                ))}
+            </Routes>
         </div>
     );
 }

@@ -1,12 +1,13 @@
-import axios from "axios";
 import React, { useCallback, useEffect, useState } from "react";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import styled from "styled-components";
 import update from "immutability-helper";
+import { useDispatch, useSelector } from "react-redux";
 import Room from "../components/rooms/room";
 import { topRowRooms } from "../data/toprow-data";
 import TopRow from "../components/toprow";
+import { getRooms } from "../redux/room-slice";
 
 const RoomTable = styled.table`
     border-collapse: collapse;
@@ -22,12 +23,14 @@ const RoomTable = styled.table`
 const Tb = styled.tbody``;
 
 function Rooms() {
+    const roomsState = useSelector((state) => state.rooms);
     const [roomsData, setRoomsData] = useState("");
 
+    const dispatch = useDispatch();
     useEffect(() => {
-        axios
-            .get("http://localhost:3001/rooms")
-            .then((resp) => setRoomsData(resp.data));
+        dispatch(getRooms()).then(() => {
+            setRoomsData(roomsState.rooms);
+        });
     }, []);
 
     const moveCard = useCallback((dragIndex, hoverIndex) => {

@@ -1,5 +1,4 @@
 import React from "react";
-
 import styled from "styled-components";
 import Reservations from "./stats/reservations";
 import Total from "./stats/total";
