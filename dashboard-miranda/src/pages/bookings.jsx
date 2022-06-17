@@ -25,7 +25,6 @@ function Rooms() {
     const [bookingsData, setBookingsData] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
     const [perPage] = useState(6);
-
     const dispatch = useDispatch();
 
     useEffect(() => {

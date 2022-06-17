@@ -1,12 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { RiBarChartHorizontalLine } from "react-icons/ri";
-import { AiOutlineSearch, AiOutlineHeart, AiOutlineBell } from "react-icons/ai";
-import { BiEnvelope, BiMessageDetail } from "react-icons/bi";
-import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { AiOutlineBell } from "react-icons/ai";
+import { BiEnvelope } from "react-icons/bi";
+import { FiLogOut } from "react-icons/fi";
 import "../../iconstyles.css";
-import { useDispatch, useSelector } from "react-redux";
-import { getUsers } from "../../redux/users-slice";
+import { useAuth } from "../../context/authcontext";
 
 const Nav = styled.nav`
     width: 100%;
@@ -17,6 +16,7 @@ const Nav = styled.nav`
     border: none;
     background-color: #fefefe;
 `;
+
 const ProfileImg = styled.img`
     width: 60px;
     border-radius: 10%;
@@ -42,16 +42,28 @@ const IconsContainer = styled.div`
     display: flex;
     align-items: center;
 `;
+
 function TopNav() {
+    const { dispatchAuth } = useAuth();
+
+    const handleLogout = (ev) => {
+        ev.preventDefault();
+        dispatchAuth({ type: "logout" });
+    };
+
     return (
         <Nav>
             <TitleContainer>
-                <RiBarChartHorizontalLine className="top-icons--3" />
+                <RiBarChartHorizontalLine className="top-icons--2" />
                 <h1>Title</h1>
             </TitleContainer>
             <IconsContainer>
                 <BiEnvelope className="top-icons" />
                 <AiOutlineBell className="top-icons" />
+                <FiLogOut
+                    className="top-icons"
+                    onClick={(ev) => handleLogout(ev)}
+                />
             </IconsContainer>
         </Nav>
     );
