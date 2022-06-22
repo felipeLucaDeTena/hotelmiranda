@@ -1,0 +1,73 @@
+@mixin old-title {
+    font-family: "Old Standard TT";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 60px;
+    letter-spacing: -1.2px;
+}
+@mixin archivo-button {
+    font-family: "Archivo";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 2.8px;
+    text-transform: uppercase;
+}
+@mixin archivo-normal {
+    font-family: "Archivo";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+}
+@mixin roboto-normal {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+}
+@mixin roboto-bold {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.header {
+    padding: 0 5.3% 0 5.3%;
+    width: 100%;
+    height: 265px;
+    background-color: #333333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    color: white;
+    &__p {
+        font-family: "archivo";
+        font-size: 13px;
+        line-height: 18px;
+        letter-spacing: 2.8px;
+        margin-top: 70px;
+    }
+    &__title {
+        @include old-title;
+        margin-top: 30px;
+    }
+    &__container {
+        background-color: white;
+        color: #222222;
+        width: 41%;
+        height: 49px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto 20px 0 auto;
+        &__p {
+            @include roboto-bold;
+            &--2 {
+                color: #bead8e;
+            }
+        }
+    }
+}

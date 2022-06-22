@@ -1,0 +1,47 @@
+.header {
+  padding: 0 5.3% 0 5.3%;
+  width: 100%;
+  height: 265px;
+  background-color: #333333;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: white;
+}
+.header__p {
+  font-family: "archivo";
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 2.8px;
+  margin-top: 70px;
+}
+.header__title {
+  font-family: "Old Standard TT";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 60px;
+  letter-spacing: -1.2px;
+  margin-top: 30px;
+}
+.header__container {
+  background-color: white;
+  color: #222222;
+  width: 41%;
+  height: 49px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto 20px 0 auto;
+}
+.header__container__p {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+}
+.header__container__p--2 {
+  color: #bead8e;
+}
+
+/*# sourceMappingURL=contact.css.map */

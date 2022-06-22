@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/styles/nav-footer.css" />
+        <link rel="stylesheet" href="/styles/contact.css" />
+        <link rel="stylesheet" href="/styles/map.css" />
+        <title>Document</title>
+        <script
+            src="https://kit.fontawesome.com/c3c5a054e8.js"
+            crossorigin="anonymous"
+        ></script>
+    </head>
+    <body>
+        <div class="nav">
+            <div class="dropdown">
+                <!-- <i
+                    class="dropdown__button dropdown__button--x fa fa-times"
+                ></i> -->
+                <i
+                    class="dropdown__button dropdown__button--bar fas fa-bars"
+                    aria-hidden="true"
+                ></i>
+
+                <ul class="dropdown__content">
+                    <li>
+                        <a class="dropdown__links" href="#">About Us</a>
+                    </li>
+                    <li>
+                        <a class="dropdown__links" href="#">Rooms</a>
+                    </li>
+                    <li>
+                        <a class="dropdown__links" href="#">Offers</a>
+                    </li>
+                    <li>
+                        <a class="dropdown__links" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav__logo">
+                <div class="nav__logo__icon">
+                    <p>H</p>
+                </div>
+                <div class="nav__logo__container">
+                    <p class="nav__logo__p nav__logo__p--bold">HOTEL</p>
+                    <p class="nav__logo__p">MIRANDA</p>
+                </div>
+            </div>
+            <div class="nav__icons">
+                <i
+                    class="nav__icons__element fa fa-search"
+                    aria-hidden="true"
+                ></i>
+                <i class="nav__icons__element fas fa-user"></i>
+            </div>
+        </div>
+        <header class="header">
+            <div>
+                <p class="header__p">THE ULTIMATE LUXURY</p>
+                <p class="header__title">Contact Us</p>
+            </div>
+            <div class="header__container">
+                <p class="header__container__p">Home |&nbsp;</p>
+                <p class="header__container__p header__container__p--2">
+                    Contact
+                </p>
+            </div>
+        </header>
+        <footer class="footer">
+            <div class="footer__break"></div>
+            <div class="footer__info">
+                <div class="footer__logo">
+                    <div class="footer__logo__icon">H</div>
+                    <div class="footer__logo__p__wrapper">
+                        <p class="footer__logo__p">HOTEL</p>
+                        <p class="footer__logo__p footer__logo__p--2">
+                            MIRANDA
+                        </p>
+                    </div>
+                </div>
+                <h3>My Google Maps Demo</h3>
+                <div id="map"></div>
+                <label for="">
+                    Address
+                    <input
+                        id="adress-geocoding"
+                        type="text"
+                        class="red"
+                        name=""
+                    />
+                </label>
+                <button id="btn-searchlocation" class="btn-primary">
+                    search Location
+                </button>
+                <button id="btn-geocoding" class="btn-primary">
+                    My location
+                </button>
+                <select name="select-region" id="filter-region">
+                    <option disabled selected value>Select a Region</option>
+                    <option value>None</option>
+                </select>
+                <button id="btn-nearestHotel" class="btn-primary">
+                    Get nearest Hotels
+                </button>
+                <div class="contactPage__results">
+                    <ul id="results"></ul>
+                </div>
+                <p class="footer__p">
+                    Lorem ipsum dolor sit amet, consect etur adipisicing elit,
+                    sed doing eius mod tempor incididunt ut labore et dolore
+                    magna aliqua. Ut enim ad minim veniam, quis nostrud
+                    exercitat ion ullamco laboris nisi.
+                </p>
+                <div class="footer__icons__wrapper">
+                    <i class="footer__icons fab fa-facebook-square"></i>
+                    <i class="footer__icons fab fa-twitter-square"></i>
+                    <i class="footer__icons fab fa-behance-square"></i>
+                    <i class="footer__icons fab fa-linkedin"></i>
+                    <i class="footer__icons fab fa-youtube-square"></i>
+                </div>
+                <div class="footer__services">
+                    <h4 class="footer__services__title">Services.</h4>
+                    <div class="footer__services__wrapper">
+                        <div class="footer__services__info">
+                            <p>+ Restaurant & Bar</p>
+                            <p>+ Swimming Pool</p>
+                            <p>+ Wellness and Spa</p>
+                            <p>+ Restaurant</p>
+                            <p>+ Conference Room</p>
+                            <p>+ Coctail Party House</p>
+                        </div>
+                        <div class="footer__services__info">
+                            <p>+ Gaming Zone</p>
+                            <p>+ Marrige Party</p>
+                            <p>+ Party Planning</p>
+                            <p>+ Tour Consultancy</p>
+                        </div>
+                    </div>
+                    <h4 class="footer__services__title">Contact Us.</h4>
+                    <div class="footer__contact">
+                        <img
+                            class="footer__contact__icon"
+                            src="./public/home/footer/phone.svg"
+                            alt=""
+                        />
+                        <div class="footer__contact__info">
+                            <p class="footer__contact__info__p">Phone Number</p>
+                            <p
+                                class="footer__contact__info__p footer__contact__info__p--2"
+                            >
+                                +987 876 765 76 577
+                            </p>
+                        </div>
+                    </div>
+                    <div class="footer__contact">
+                        <img
+                            class="footer__contact__icon"
+                            src="./public/home/footer/message.svg"
+                            alt=""
+                        />
+                        <div class="footer__contact__info">
+                            <p class="footer__contact__info__p">Phone Number</p>
+                            <p
+                                class="footer__contact__info__p footer__contact__info__p--2"
+                            >
+                                +987 876 765 76 577
+                            </p>
+                        </div>
+                    </div>
+                    <div class="footer__contact">
+                        <img
+                            class="footer__contact__icon"
+                            src="./public/home/footer/location.svg"
+                            alt=""
+                        />
+                        <div class="footer__contact__info">
+                            <p class="footer__contact__info__p">Phone Number</p>
+                            <p
+                                class="footer__contact__info__p footer__contact__info__p--2"
+                            >
+                                +987 876 765 76 577
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+        <script src="./scripts/map.js"></script>
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBn4csiUpKyCCXrgdVJcJmhU2ZjTSvmNKs&callback=initMap&v=weekly"
+            defer
+        ></script>
+    </body>
+</html>

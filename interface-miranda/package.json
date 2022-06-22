@@ -8,6 +8,7 @@
     },
     "license": "ISC",
     "dependencies": {
+        "@googlemaps/markerclusterer": "^2.0.7",
         "sass": "^1.52.1"
     }
 }
