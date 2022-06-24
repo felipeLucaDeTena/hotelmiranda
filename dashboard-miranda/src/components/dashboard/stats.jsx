@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Chart from "./stats/chart";
 import Reservations from "./stats/reservations";
 import Total from "./stats/total";
 
@@ -11,17 +12,11 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: space-between;
 `;
-const Graph = styled.div`
-    height: 50%;
-    background-color: white;
-    border-radius: 10px;
-    width: 100%;
-`;
 
 function Stats() {
     return (
         <Container>
-            <Graph />
+            <Chart />
             <Reservations />
             <Total />
         </Container>

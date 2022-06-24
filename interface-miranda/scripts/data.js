@@ -1,170 +1,4 @@
-// Initialize and add the map
-
-function initMap() {
-    // The location of madrid
-
-    const madrid = { lat: 40.4379543, lng: -3.6795367 };
-    // The map, centered at madrid
-    const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 4,
-        center: madrid,
-    });
-
-    const infoWindow = new google.maps.InfoWindow({
-        content: "",
-        disableAutoPan: true,
-    });
-
-    const svgMarker = {
-        path: "M22 21H2v-2h1V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v5h2v10h1v2zm-5-2h2v-8h-6v8h2v-6h2v6zm0-10V5H5v14h6V9h6zM7 11h2v2H7v-2zm0 4h2v2H7v-2zm0-8h2v2H7V7z",
-        fillColor: "#d7503e",
-        strokeWeight: 0,
-        fillOpacity: 1,
-        scale: 0.7,
-        anchor: new google.maps.Point(15, 30),
-    };
-
-    // The marker, positioned at madrid
-    const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const markers = locations.map((location, i) => {
-        const label = labels[i % labels.length];
-        const marker = new google.maps.Marker({
-            position: location,
-            icon: svgMarker,
-            map: map,
-            label: label,
-        });
-        marker.addListener("click", () => {
-            infoWindow.setContent(label);
-            infoWindow.open(map, marker);
-        });
-        return marker;
-    });
-
-    const markerCluster = new markerClusterer.MarkerClusterer({ map, markers });
-    let currentPosition;
-    document.querySelector("#btn-geocoding").addEventListener("click", () => {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-                (position) => {
-                    const pos = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude,
-                    };
-                    currentPosition = pos;
-                    infoWindow.setPosition(pos);
-                    infoWindow.setContent("Location found.");
-                    infoWindow.open(map);
-                    map.setCenter(pos);
-                },
-                () => {
-                    handleLocationError(true, infoWindow, map.getCenter());
-                }
-            );
-        }
-    });
-
-    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(
-            browserHasGeolocation
-                ? "Error: The Geolocation service failed."
-                : "Error: Your browser doesn't support geolocation."
-        );
-        infoWindow.open(map);
-    }
-
-    function getDistanceMatrix(position, destinations) {
-        const service = new google.maps.DistanceMatrixService();
-
-        service
-            .getDistanceMatrix({
-                origins: [position],
-                destinations: destinations,
-                travelMode: "DRIVING",
-            })
-            .then((response) => {
-                const sortedHotels = response.destinationAddresses.map(
-                    (hotel, index) => ({
-                        hotel,
-                        ...response.rows[0].elements[index],
-                    })
-                );
-
-                sortedHotels.sort(
-                    (a, b) => a.distance.value - b.distance.value
-                );
-
-                console.log(sortedHotels);
-
-                for (let hotel of sortedHotels) {
-                    const destinationAddress = document.createElement("li");
-                    destinationAddress.innerText =
-                        hotel.hotel + " - " + hotel.distance.text;
-                    document
-                        .getElementById("results")
-                        .appendChild(destinationAddress);
-                }
-            });
-    }
-
-    const destinations = locations.map((location) => ({
-        lat: location.lat,
-        lng: location.lng,
-    }));
-
-    const geocoder = new google.maps.Geocoder();
-    let address;
-    function findAddress() {
-        address = document.querySelector("#adress-geocoding").value;
-        geocoder.geocode({ address: address }, function (results, status) {
-            if (status == "OK") {
-                map.setCenter(results[0].geometry.location);
-                let marker = new google.maps.Marker({
-                    map: map,
-                    position: results[0].geometry.location,
-                });
-                return results[0].geometry.location;
-            } else {
-                alert(
-                    "Geocode was not successful for the following reason: " +
-                        status
-                );
-            }
-        });
-    }
-
-    document
-        .querySelector("#btn-searchlocation")
-        .addEventListener("click", findAddress);
-
-    document
-        .querySelector("#btn-nearestHotel")
-        .addEventListener("click", () => {
-            if (currentPosition) {
-                const myPosition = new google.maps.LatLng(
-                    currentPosition.lat,
-                    currentPosition.lng
-                );
-                getDistanceMatrix(myPosition, destinations);
-            } else if (address) {
-                console.log(address);
-                getDistanceMatrix(address, destinations);
-            } else {
-                alert("There is no origin");
-            }
-        });
-
-    const select = document.getElementById("select");
-    for (let comunidad of comunidadesAutonomas) {
-        const comunidadAutonoma = document.createElement("option");
-        comunidadAutonoma.value = comunidad;
-        comunidadAutonoma.text = comunidad;
-        select.appendChild(comunidadAutonoma);
-    }
-}
-
-const locations = [
+export const locations = [
     { lat: 40.4379543, lng: -3.6795367 },
     { lat: 27.937698158678735, lng: -15.547693123655627 },
     { lat: 39.741019830885946, lng: 3.0424626371986414 },
@@ -177,7 +11,7 @@ const locations = [
     { lat: 28.732800480604784, lng: -17.91103115013308 },
 ];
 
-const comunidadesAutonomas = [
+export const comunidadesAutonomas = [
     "Andalucía",
     "Aragón",
     "Asturias, Principado de",
@@ -199,7 +33,7 @@ const comunidadesAutonomas = [
     "Melilla",
 ];
 
-const espanaComunidades = [
+export const coordComunidades = [
     [
         [
             {
@@ -12602,5 +12436,3 @@ const espanaComunidades = [
         ],
     ],
 ];
-
-window.initMap = initMap;

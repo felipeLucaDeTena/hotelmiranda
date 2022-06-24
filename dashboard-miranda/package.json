@@ -8,6 +8,7 @@
         "@testing-library/react": "^13.3.0",
         "@testing-library/user-event": "^14.2.0",
         "axios": "^0.27.2",
+        "d3": "^7.4.4",
         "dayjs": "^1.11.3",
         "eslint-config-airbnb": "^19.0.4",
         "eslint-config-prettier": "^8.5.0",
